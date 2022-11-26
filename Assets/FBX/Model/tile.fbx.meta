@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 1415a55b6e9c68f4f902d50b5c6a2013
+guid: 36958eb85bbfc7a42a80c7f4a85b997d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tile_shader
+    second: {fileID: 2100000, guid: e877694046bda1049b49d7bff2ef1b77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
