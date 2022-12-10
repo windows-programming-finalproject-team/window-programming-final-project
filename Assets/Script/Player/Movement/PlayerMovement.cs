@@ -62,7 +62,17 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (rb.velocity == new Vector3(0, 0, 0))
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    // break sliding
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + slidingCameraTransform, camera.transform.position.z);
+                    isSliding = false;
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight - slidingColliderHeight) / 2, capsuleCollider.center.z);
+                    capsuleCollider.height = originalColliderHeight;
+                    // jump
+                    rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+                }
+                else if (rb.velocity == new Vector3(0, 0, 0))
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + slidingCameraTransform, camera.transform.position.z);
                     isSliding = false;

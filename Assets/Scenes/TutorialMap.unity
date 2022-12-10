@@ -13081,7 +13081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e29c46ec3253741b7b5725a638cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 12
+  movingSpeed: 15
   jumpSpeed: 10
   slideSpeed: 15
   camera: {fileID: 2072718403}
@@ -13173,7 +13173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906322596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.145, y: 3.37, z: -140.2}
+  m_LocalPosition: {x: -25.145, y: 3.37, z: -148.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
