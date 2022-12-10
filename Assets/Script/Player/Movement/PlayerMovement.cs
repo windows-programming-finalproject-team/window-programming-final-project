@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     MeshRenderer render;
     CapsuleCollider capsuleCollider;
+    float originalColliderHeight;
+    float slidingColliderHeight = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         render = GetComponent<MeshRenderer>();
         render.enabled = false;//Make player invisible
         capsuleCollider = GetComponent<CapsuleCollider>();
+        originalColliderHeight = capsuleCollider.height;
     }
 
     // Update is called once per frame
@@ -54,32 +57,32 @@ public class PlayerMovement : MonoBehaviour
                     rb.velocity = transform.forward * slideSpeed;
                     isSliding = true;
                     capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - (float)0.5, capsuleCollider.center.z);
-                    capsuleCollider.height = 1;
+                    capsuleCollider.height = slidingColliderHeight;
                 }
             }
             else
             {
                 float newSlideVerticalSpeed = Mathf.Max(rb.velocity.z - slideSpeedDecreaseRate * Time.deltaTime, 0);
-                rb.velocity = new Vector3(newHorizontalSpeed.x, 0,newSlideVerticalSpeed);
+                rb.velocity = new Vector3(rb.velocity.x, 0,newSlideVerticalSpeed);
 
                 if (rb.velocity == new Vector3(0, 0, 0))
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + (float)0.2, camera.transform.position.z);
                     isSliding = false;
                     capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (float)0.5, capsuleCollider.center.z);
-                    capsuleCollider.height = 2;
+                    capsuleCollider.height = originalColliderHeight;
                 }
             }
         }
         else
         {
-            transform.position += 2 * movingSpeed * Time.deltaTime * transform.forward;//If the player in wall then move forward automatically
+            rb.velocity = 2*movingSpeed*transform.forward;
         }
     }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "ground") isGround = true;
-        else if (collision.gameObject.tag == "wallRunTile")
+        else if (collision.gameObject.tag == "wallrunTile")
         {
             onWall = true;
             rb.velocity = new Vector3(0, 0, 0);
@@ -91,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         onWall = false;
         if (collision.gameObject.tag == "ground") isGround = false;
-        else if (collision.gameObject.tag == "wallRunTile")
+        else if (collision.gameObject.tag == "wallrunTile")
         {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
             rb.AddForce(transform.forward * 30);

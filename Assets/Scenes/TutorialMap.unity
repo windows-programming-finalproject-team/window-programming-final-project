@@ -8339,7 +8339,7 @@ GameObject:
   - component: {fileID: 410921597}
   m_Layer: 0
   m_Name: lava
-  m_TagString: Untagged
+  m_TagString: lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -11341,7 +11341,7 @@ PrefabInstance:
     - target: {fileID: 2535204881456496977, guid: 8acda804a3321ca46a2e88d4685ac984,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -59.308563
+      value: -53.15
       objectReference: {fileID: 0}
     - target: {fileID: 2535204881456496977, guid: 8acda804a3321ca46a2e88d4685ac984,
         type: 3}
@@ -12454,7 +12454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834569926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.29986, y: -16.85991, z: 5.905987}
+  m_LocalPosition: {x: 1.29986, y: -16.85991, z: 1.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12534,10 +12534,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e29c46ec3253741b7b5725a638cebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 20
-  jumpSpeed: 8
+  movingSpeed: 15
+  jumpSpeed: 10
   slideSpeed: 15
-  slideSpeedDecreaseRate: 3
+  slideSpeedDecreaseRate: 10
   camera: {fileID: 2072718403}
 --- !u!54 &906322598
 Rigidbody:
@@ -16257,7 +16257,7 @@ PrefabInstance:
     - target: {fileID: 5142396880325072691, guid: 60ef4b45d371e9e4ba0f06a8fb8e4712,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.641001
+      value: -16.8
       objectReference: {fileID: 0}
     - target: {fileID: 5142396880325072691, guid: 60ef4b45d371e9e4ba0f06a8fb8e4712,
         type: 3}
@@ -20574,7 +20574,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1831763b3aeea0140a3a8ccdf083b471,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1522.9576
+      value: 1560.2701
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1831763b3aeea0140a3a8ccdf083b471,
         type: 3}
@@ -20906,8 +20906,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2535204881456496977, guid: 8acda804a3321ca46a2e88d4685ac984,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0631
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535204881456496977, guid: 8acda804a3321ca46a2e88d4685ac984,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.38
+      value: -14.972
       objectReference: {fileID: 0}
     - target: {fileID: 2535204881456496977, guid: 8acda804a3321ca46a2e88d4685ac984,
         type: 3}
