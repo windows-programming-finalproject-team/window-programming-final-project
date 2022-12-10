@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movingSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] float slideSpeed;
+    [SerializeField] float slideSpeedDecreaseRate;
     [SerializeField] new Camera camera;
     bool isGround, isSliding, onWall;
     Rigidbody rb;
@@ -31,26 +32,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
+        Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
+
         if (!onWall)
         {
             if (!isSliding)
             {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.forward;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.forward;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.right;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.right;
-                }
+                rb.velocity = newHorizontalSpeed + newVerticalSpeed+new Vector3(0,rb.velocity.y,0);
+
                 if (isGround && Input.GetKey(KeyCode.Space))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
@@ -67,14 +59,9 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.right;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.right;
-                }
+                float newSlideVerticalSpeed = Mathf.Max(rb.velocity.z - slideSpeedDecreaseRate * Time.deltaTime, 0);
+                rb.velocity = new Vector3(newHorizontalSpeed.x, 0,newSlideVerticalSpeed);
+
                 if (rb.velocity == new Vector3(0, 0, 0))
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + (float)0.2, camera.transform.position.z);
@@ -92,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "ground") isGround = true;
-        else if (collision.gameObject.tag == "wall")
+        else if (collision.gameObject.tag == "wallRunTile")
         {
             onWall = true;
             rb.velocity = new Vector3(0, 0, 0);
