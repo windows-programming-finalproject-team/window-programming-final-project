@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - wallrunTile
+  - portal
+  - ground
+  - ropeTile
+  - lava
   layers:
   - Default
   - TransparentFX
