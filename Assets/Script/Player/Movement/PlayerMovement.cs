@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movingSpeed;
     [SerializeField] float jumpSpeed;
     [SerializeField] float slideSpeed;
-    [SerializeField] float slideSpeedDecreaseRate;
     [SerializeField] new Camera camera;
     bool isGround, isSliding, onWall;
     Rigidbody rb;
@@ -18,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider capsuleCollider;
     float originalColliderHeight;
     float slidingColliderHeight = 1;
+    float slidingCameraTransform = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isSliding)
             {
-                rb.velocity = newHorizontalSpeed + newVerticalSpeed+new Vector3(0,rb.velocity.y,0);
+                rb.velocity = newHorizontalSpeed + newVerticalSpeed + new Vector3(0,rb.velocity.y,0);
 
                 if (isGround && Input.GetKey(KeyCode.Space))
                 {
@@ -52,24 +53,20 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (isGround && Input.GetKey(KeyCode.LeftShift))
                 {
-                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - (float)0.2, camera.transform.position.z);
-                    rb.velocity = new Vector3(0, 0, 0);
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - slidingCameraTransform, camera.transform.position.z);
                     rb.velocity = transform.forward * slideSpeed;
                     isSliding = true;
-                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - (float)0.5, capsuleCollider.center.z);
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - (originalColliderHeight-slidingColliderHeight)/2, capsuleCollider.center.z);
                     capsuleCollider.height = slidingColliderHeight;
                 }
             }
             else
             {
-                float newSlideVerticalSpeed = Mathf.Max(rb.velocity.z - slideSpeedDecreaseRate * Time.deltaTime, 0);
-                rb.velocity = new Vector3(rb.velocity.x, 0,newSlideVerticalSpeed);
-
                 if (rb.velocity == new Vector3(0, 0, 0))
                 {
-                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + (float)0.2, camera.transform.position.z);
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + slidingCameraTransform, camera.transform.position.z);
                     isSliding = false;
-                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (float)0.5, capsuleCollider.center.z);
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight-slidingColliderHeight)/2, capsuleCollider.center.z);
                     capsuleCollider.height = originalColliderHeight;
                 }
             }

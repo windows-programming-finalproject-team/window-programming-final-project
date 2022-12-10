@@ -9,6 +9,7 @@ TagManager:
   - ground
   - ropeTile
   - lava
+  - wall
   layers:
   - Default
   - TransparentFX

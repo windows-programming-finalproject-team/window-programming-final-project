@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour
 {
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] Transform playerBody;
-    float xRotation;
+    float xRotation=0;
     // Start is called before the first frame update
     void Start()
     {
