@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     {
         onWall = false;
         if (collision.gameObject.tag == "ground") isGround = false;
-        else if (collision.gameObject.tag == "wall")
+        else if (collision.gameObject.tag == "wallRunTile")
         {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
             rb.AddForce(transform.forward * 30);
