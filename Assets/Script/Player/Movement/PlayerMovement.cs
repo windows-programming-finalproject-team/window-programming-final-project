@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     MeshRenderer render;
     CapsuleCollider capsuleCollider;
+    float originalColliderHeight;
+    float slidingColliderHeight = 1;
+    float slidingCameraTransform = 1.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,73 +30,66 @@ public class PlayerMovement : MonoBehaviour
         render = GetComponent<MeshRenderer>();
         render.enabled = false;//Make player invisible
         capsuleCollider = GetComponent<CapsuleCollider>();
+        originalColliderHeight = capsuleCollider.height;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
+        Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
+
         if (!onWall)
         {
             if (!isSliding)
             {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.forward;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.forward;
-                }
-                if (Input.GetKey(KeyCode.A))
-                {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.right;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.right;
-                }
+                rb.velocity = newHorizontalSpeed + newVerticalSpeed + new Vector3(0,rb.velocity.y,0);
+
                 if (isGround && Input.GetKey(KeyCode.Space))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
                 }
                 if (isGround && Input.GetKey(KeyCode.LeftShift))
                 {
-                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - (float)0.2, camera.transform.position.z);
-                    rb.velocity = new Vector3(0, 0, 0);
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y - slidingCameraTransform, camera.transform.position.z);
                     rb.velocity = transform.forward * slideSpeed;
                     isSliding = true;
-                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - (float)0.5, capsuleCollider.center.z);
-                    capsuleCollider.height = 1;
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y - (originalColliderHeight-slidingColliderHeight)/2, capsuleCollider.center.z);
+                    capsuleCollider.height = slidingColliderHeight;
                 }
             }
             else
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.Space))
                 {
-                    transform.position -= movingSpeed * Time.deltaTime * transform.right;
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    transform.position += movingSpeed * Time.deltaTime * transform.right;
-                }
-                if (rb.velocity == new Vector3(0, 0, 0))
-                {
-                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + (float)0.2, camera.transform.position.z);
+                    // break sliding
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + slidingCameraTransform, camera.transform.position.z);
                     isSliding = false;
-                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (float)0.5, capsuleCollider.center.z);
-                    capsuleCollider.height = 2;
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight - slidingColliderHeight) / 2, capsuleCollider.center.z);
+                    capsuleCollider.height = originalColliderHeight;
+                    // jump
+                    rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+                }
+                else if (rb.velocity == new Vector3(0, 0, 0))
+                {
+                    camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + slidingCameraTransform, camera.transform.position.z);
+                    isSliding = false;
+                    capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight-slidingColliderHeight)/2, capsuleCollider.center.z);
+                    capsuleCollider.height = originalColliderHeight;
                 }
             }
         }
         else
         {
-            transform.position += 2 * movingSpeed * Time.deltaTime * transform.forward;//If the player in wall then move forward automatically
+            rb.velocity = 2*movingSpeed*transform.forward;
         }
     }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "ground") isGround = true;
-        else if (collision.gameObject.tag == "wall")
+        else if (collision.gameObject.tag == "wallrunTile")
         {
             onWall = true;
             rb.velocity = new Vector3(0, 0, 0);
@@ -104,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     {
         onWall = false;
         if (collision.gameObject.tag == "ground") isGround = false;
-        else if (collision.gameObject.tag == "wall")
+        else if (collision.gameObject.tag == "wallrunTile")
         {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
             rb.AddForce(transform.forward * 30);
