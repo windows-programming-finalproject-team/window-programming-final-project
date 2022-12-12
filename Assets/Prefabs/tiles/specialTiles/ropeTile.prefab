@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6519072259579832105}
   - component: {fileID: 6519072259579832106}
   - component: {fileID: 6519072259579832107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ropeTile
   m_TagString: ropeTile
   m_Icon: {fileID: 0}
