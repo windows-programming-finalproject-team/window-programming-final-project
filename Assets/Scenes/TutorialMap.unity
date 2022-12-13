@@ -32498,7 +32498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b5f006d63e3e14b9fa5bcddb43e636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 150
+  mouseSensitivity: 200
   playerBody: {fileID: 906322602}
 --- !u!4 &2090321809 stripped
 Transform:
