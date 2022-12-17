@@ -95,7 +95,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8d223a475cbb9c478d1b4214f4be7e1, type: 2}
+  - {fileID: 2100000, guid: 6115a4d8a72ce5e4d871f77bc761c401, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,10 +202,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1831763b3aeea0140a3a8ccdf083b471,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b0a77122a3737249be505a6d22d7970, type: 2}
     - target: {fileID: 919132149155446097, guid: 1831763b3aeea0140a3a8ccdf083b471,
         type: 3}
       propertyPath: m_Name
-      value: goldBorder
+      value: portalBorder
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1831763b3aeea0140a3a8ccdf083b471,
         type: 3}
