@@ -11,6 +11,7 @@ TagManager:
   - lava
   - wall
   - death
+  - enemy
   layers:
   - Default
   - TransparentFX

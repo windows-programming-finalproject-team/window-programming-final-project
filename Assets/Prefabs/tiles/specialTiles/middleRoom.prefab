@@ -126,7 +126,7 @@ PrefabInstance:
     - target: {fileID: 459523530682913536, guid: 8a402900ee797714fa2045af944b2124,
         type: 3}
       propertyPath: m_Name
-      value: tile32by16 (2)
+      value: floor
       objectReference: {fileID: 0}
     - target: {fileID: 459523530682913536, guid: 8a402900ee797714fa2045af944b2124,
         type: 3}
@@ -3681,7 +3681,7 @@ PrefabInstance:
     - target: {fileID: 3958717395126209198, guid: a69158361b1d0af49831288210a46774,
         type: 3}
       propertyPath: m_Name
-      value: wallTile32by16
+      value: leftWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69158361b1d0af49831288210a46774, type: 3}
@@ -3781,7 +3781,7 @@ PrefabInstance:
     - target: {fileID: 459523530682913536, guid: 8a402900ee797714fa2045af944b2124,
         type: 3}
       propertyPath: m_Name
-      value: tile32by16 (1)
+      value: ceiling
       objectReference: {fileID: 0}
     - target: {fileID: 459523530682913536, guid: 8a402900ee797714fa2045af944b2124,
         type: 3}
@@ -7251,7 +7251,7 @@ PrefabInstance:
     - target: {fileID: 3958717395126209198, guid: a69158361b1d0af49831288210a46774,
         type: 3}
       propertyPath: m_Name
-      value: wallTile32by16 (1)
+      value: rightWall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69158361b1d0af49831288210a46774, type: 3}
