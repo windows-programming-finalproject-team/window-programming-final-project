@@ -10,6 +10,7 @@ TagManager:
   - ropeTile
   - lava
   - wall
+  - death
   layers:
   - Default
   - TransparentFX
