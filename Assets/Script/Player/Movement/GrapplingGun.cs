@@ -17,6 +17,8 @@ public class GrapplingGun : MonoBehaviour
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        // make lr invisible
+        lr.enabled = false;
     }
 
     private void Update()
@@ -65,12 +67,14 @@ public class GrapplingGun : MonoBehaviour
         if (!joint) return;//If not grappling, don't draw rope
         else
         {
+            lr.enabled = true;
             lr.SetPosition(0, gunTip.position);
             lr.SetPosition(1, grapplePoint);
         }
     }
     private void StopGrapple()
     {
+        lr.enabled = false;
         lr.positionCount = 0;
         Destroy(joint);
     }
