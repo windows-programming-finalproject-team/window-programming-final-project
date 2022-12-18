@@ -12,6 +12,7 @@ public class SwitchWeapon : MonoBehaviour
     MeshRenderer UziRender;
     MeshRenderer ShotGunRender;
     MeshRenderer LightGunRender;
+    public bool isReloading = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !isReloading)
         {
             Sword.gameObject.SetActive(true);
             SwordRender.enabled = true;
@@ -42,7 +43,7 @@ public class SwitchWeapon : MonoBehaviour
             LightGun.gameObject.SetActive(false);
             LightGunRender.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !isReloading)
         {
             Sword.gameObject.SetActive(false);
             SwordRender.enabled = false;
@@ -53,7 +54,7 @@ public class SwitchWeapon : MonoBehaviour
             LightGun.gameObject.SetActive(false);
             LightGunRender.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !isReloading)
         {
             Sword.gameObject.SetActive(false);
             SwordRender.enabled = false;
@@ -64,7 +65,7 @@ public class SwitchWeapon : MonoBehaviour
             LightGun.gameObject.SetActive(false);
             LightGunRender.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && !isReloading)
         {
             Sword.gameObject.SetActive(false);
             SwordRender.enabled = false;

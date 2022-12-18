@@ -6,6 +6,8 @@ public class UziShot : MonoBehaviour
 {
     Animator animator;
     AnimatorStateInfo info;
+    [SerializeField] GameObject Bullet;
+    Rigidbody rb;
     int BulletNumber = 60;
     // Start is called before the first frame update
     void Start()
@@ -17,18 +19,37 @@ public class UziShot : MonoBehaviour
     void Update()
     {
         info = animator.GetCurrentAnimatorStateInfo(0);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
-            
             animator.SetBool("isShotting", true);
         }
-        if (Input.GetMouseButtonUp(0))
+        if (BulletNumber == 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(BulletNumber < 60)
+            {
+                transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
+                animator.SetBool("isReloading", true);
+            }
         }
     }
     void Shot()
     {
-
+        if (BulletNumber > 0)
+        {
+            GameObject UziBullet = Instantiate(Bullet, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
+            BulletNumber--;
+            rb = UziBullet.GetComponent<Rigidbody>();
+            rb.velocity = 50 * UziBullet.transform.forward;
+        }
+    }
+    void Reload()
+    {
+        BulletNumber = 60;
+        animator.SetBool("isReloading", false);
+        transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = false;
     }
 }
