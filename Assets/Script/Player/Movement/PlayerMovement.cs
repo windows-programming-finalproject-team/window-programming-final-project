@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
         Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
 
+        if (PullEnemy.grappling)
+        {
+            return;
+        }
+
         if (!onWall)
         {
             if (!isSliding)

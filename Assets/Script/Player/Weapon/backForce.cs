@@ -17,7 +17,7 @@ public class backForce : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
 
