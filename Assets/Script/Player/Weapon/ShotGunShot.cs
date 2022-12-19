@@ -23,7 +23,7 @@ public class ShotGunShot : MonoBehaviour
         {
             animator.SetBool("isShotting", true);
         }
-        if (BulletNumber == 0 || Input.GetMouseButtonUp(0))
+        if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
         }

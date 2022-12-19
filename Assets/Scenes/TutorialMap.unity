@@ -9187,6 +9187,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 200074050721155898}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &561946853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5163835952604701638, guid: 30959f93e2d40804e93f74b3cd711ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 200074050721155898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &624242250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27448,6 +27454,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b17ae1c956525e4788ffde827f5999a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  AttackRange: 0.25
+  AttackPoint: {fileID: 1961155178}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!4 &1601548891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4330705534194512182, guid: b306900ee97823e4a98dc047fd629b4d,
@@ -32182,6 +32194,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a402900ee797714fa2045af944b2124, type: 3}
+--- !u!1 &1961155177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961155178}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961155178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961155177}
+  m_LocalRotation: {x: -0.00049847364, y: -0, z: -0, w: 0.99999994}
+  m_LocalPosition: {x: 0, y: -0.022, z: 0.848}
+  m_LocalScale: {x: 35.476, y: 35.47601, z: 35.47601}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 561946853}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -75.057, y: 0, z: 0}
 --- !u!1 &1983903266
 GameObject:
   m_ObjectHideFlags: 0
@@ -35913,17 +35956,17 @@ PrefabInstance:
     - target: {fileID: 7883563617956481727, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.30416992
+      value: 14.501556
       objectReference: {fileID: 0}
     - target: {fileID: 7883563617956481727, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -7.0539587e-15
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7883563617956481727, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 7.016808e-15
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}

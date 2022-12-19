@@ -7,6 +7,10 @@ public class KatanaAttack : MonoBehaviour
     Animator animator;
     AnimatorStateInfo info;
     bool isGrappling;
+    [SerializeField] float damage = 10;
+    [SerializeField] float AttackRange = 0.025f;
+    [SerializeField] Transform AttackPoint;
+    [SerializeField] LayerMask enemyLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,16 @@ public class KatanaAttack : MonoBehaviour
         }
         if (!isGrappling && Input.GetMouseButtonDown(0))
         {
+
             animator.SetBool("isAttack", true);
+        }
+    }
+    public void Attack()
+    {
+        Collider[] hit = Physics.OverlapSphere(AttackPoint.position, AttackRange, enemyLayer);
+        foreach (Collider enemy in hit)
+        {
+            enemy.transform.gameObject.SendMessage("GetHit", damage);
         }
     }
 }
