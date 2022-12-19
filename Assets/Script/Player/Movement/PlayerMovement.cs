@@ -91,6 +91,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = 2*movingSpeed*transform.forward;
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "lava")
+        {
+            transform.GetComponent<playerDamage>().GetHit(10);
+        }
+    }
     private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "ground") isGround = true;
