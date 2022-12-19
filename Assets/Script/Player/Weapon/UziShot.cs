@@ -18,12 +18,11 @@ public class UziShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        info = animator.GetCurrentAnimatorStateInfo(0);
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
             animator.SetBool("isShotting", true);
         }
-        if (BulletNumber == 0 || Input.GetMouseButtonUp(0))
+        if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
         }

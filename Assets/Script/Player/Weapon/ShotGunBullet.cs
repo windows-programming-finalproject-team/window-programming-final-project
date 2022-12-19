@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class ShotGunBullet : MonoBehaviour
 {
+    [SerializeField] float damage = 3;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "enemy")
         {
-            //todo
+            other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else if (other.gameObject.tag == "Player")
         {
-            //todo
+            other.gameObject.GetComponent<playerDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else
@@ -25,12 +26,12 @@ public class ShotGunBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy")
         {
-            //todo
+            other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else if (other.gameObject.tag == "Player")
         {
-            //todo
+            other.gameObject.GetComponent<playerDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else
@@ -42,12 +43,12 @@ public class ShotGunBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy")
         {
-            //todo
+            other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else if (other.gameObject.tag == "Player")
         {
-            //todo
+            other.gameObject.GetComponent<playerDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
         }
         else
