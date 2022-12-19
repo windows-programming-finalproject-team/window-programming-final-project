@@ -12,7 +12,7 @@ public class backForce : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = transform.parent.parent.parent.GetComponent<Rigidbody>();
     }
 
     void Update()

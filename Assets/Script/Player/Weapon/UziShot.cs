@@ -8,7 +8,7 @@ public class UziShot : MonoBehaviour
     AnimatorStateInfo info;
     [SerializeField] GameObject Bullet;
     Rigidbody rb;
-    int BulletNumber = 60;
+    [SerializeField] int BulletNumber = 60;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +27,7 @@ public class UziShot : MonoBehaviour
         {
             animator.SetBool("isShotting", false);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || BulletNumber == 0)
         {
             if(BulletNumber < 60)
             {
