@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class backForce : MonoBehaviour
@@ -9,10 +10,12 @@ public class backForce : MonoBehaviour
     [SerializeField] float power;
     private float maxDistance = 200f;
     Rigidbody rb;
+    public static bool isUsingBackForce = false;
+    float thresholdSpeed = 20;// when can user control player again
 
     private void Start()
     {
-        rb = transform.parent.parent.parent.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -28,9 +31,13 @@ public class backForce : MonoBehaviour
                     return;
                 }
 
-                rb.velocity =rb.velocity+ camera.transform.forward * -1 * power;
+                rb.velocity += (camera.transform.forward)* -1 * power;
+                isUsingBackForce = true;
             }
-
+        }
+        else if (rb.velocity.magnitude < thresholdSpeed)
+        {
+            isUsingBackForce = false;
         }
     }
 }

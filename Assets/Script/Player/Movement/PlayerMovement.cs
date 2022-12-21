@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
         Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
 
-        if (PullEnemy.grappling)
+        if (PullEnemy.grappling||backForce.isUsingBackForce)
         {
             return;
         }

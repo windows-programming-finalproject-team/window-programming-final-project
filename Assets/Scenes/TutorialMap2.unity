@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1769843029}
-  power: 0.7
+  power: 25
 --- !u!54 &1217738824 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 200074051560368540, guid: 30959f93e2d40804e93f74b3cd711ed2,
@@ -15911,7 +15911,7 @@ MonoBehaviour:
   player: {fileID: 1217738828}
   playerRb: {fileID: 1217738824}
   camera: {fileID: 1769843029}
-  pullForce: 40
+  pullForce: 60
 --- !u!1001 &1619638116
 PrefabInstance:
   m_ObjectHideFlags: 0
