@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7213176609776460380}
   - component: {fileID: 4899545452177856150}
   - component: {fileID: 9131098966680463119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: shotgunTile
   m_TagString: shotgunTile
   m_Icon: {fileID: 0}
