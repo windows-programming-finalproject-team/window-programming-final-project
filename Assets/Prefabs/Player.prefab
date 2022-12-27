@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 200074052726499198}
   power: 15
+  shotgun: {fileID: 6151924816153024132}
 --- !u!114 &171091378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,44 +1036,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &200074051110953747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010960929777573453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efd523c933ee75b4785854c529f424d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsGrappleable:
-    serializedVersion: 2
-    m_Bits: 64
-  gunTip: {fileID: 200074052247947634}
-  player: {fileID: 200074051560368528}
-  camera: {fileID: 200074052726499198}
---- !u!114 &6223204849624586175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010960929777573453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76aa15e6cc664d9498a0a87a723f3852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsGrappleable:
-    serializedVersion: 2
-    m_Bits: 0
-  gunTip: {fileID: 200074052247947634}
-  player: {fileID: 200074051560368528}
-  playerRb: {fileID: 200074051560368540}
-  camera: {fileID: 200074052726499198}
-  pullForce: 20
 --- !u!95 &1564281532
 Animator:
   serializedVersion: 4
@@ -1111,6 +1074,44 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &200074051110953747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010960929777573453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd523c933ee75b4785854c529f424d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 64
+  gunTip: {fileID: 200074052247947634}
+  player: {fileID: 200074051560368528}
+  camera: {fileID: 200074052726499198}
+--- !u!114 &6223204849624586175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010960929777573453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76aa15e6cc664d9498a0a87a723f3852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 0
+  gunTip: {fileID: 200074052247947634}
+  player: {fileID: 200074051560368528}
+  playerRb: {fileID: 200074051560368540}
+  camera: {fileID: 200074052726499198}
+  pullForce: 20
 --- !u!1001 &4339132937411134005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1429,6 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 200074052726499198}
   power: 10
+  shotgun: {fileID: 0}
 --- !u!4 &6785754389732019262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72470517cd527d64eb7768b3a62bd688,

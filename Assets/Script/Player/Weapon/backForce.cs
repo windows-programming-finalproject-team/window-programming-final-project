@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class backForce : MonoBehaviour
 {
-    // TODO check if it's shotgun 
     [SerializeField] new Transform camera;
     [SerializeField] float power;
+    [SerializeField] GameObject shotgun;
     private float maxDistance = 200f;
     Rigidbody rb;
     public static bool isUsingBackForce = false;
@@ -20,6 +20,10 @@ public class backForce : MonoBehaviour
 
     void Update()
     {
+        // not holding shotgun
+        if (!shotgun.activeSelf)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
