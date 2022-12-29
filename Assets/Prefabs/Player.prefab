@@ -125,7 +125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200074051560368542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.145, y: 3.37, z: -148.3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   player: {fileID: 200074051560368528}
   playerRb: {fileID: 200074051560368540}
   camera: {fileID: 200074052726499198}
-  pullForce: 20
+  pullForce: 60
 --- !u!1001 &1178231549845833049
 PrefabInstance:
   m_ObjectHideFlags: 0
