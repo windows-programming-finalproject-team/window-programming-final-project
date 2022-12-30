@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class Start : MonoBehaviour
 {
     public void StartGame()
-    {
-        Time.timeScale = 2;
+    {      
         SceneManager.LoadScene(1);
     }
 }

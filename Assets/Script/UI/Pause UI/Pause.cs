@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] GameObject target;
-    public void ContinueGame()
+    Canvas canvas;
+
+    /*private void Start()
     {
-        Time.timeScale = 2;
-        target.SetActive(false);
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        canvas = GetComponent<Canvas>();
+    }*/
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        canvas.enabled = true;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        canvas.enabled = false;
     }
 }

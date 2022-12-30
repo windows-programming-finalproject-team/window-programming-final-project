@@ -13,11 +13,6 @@ TagManager:
   - death
   - enemy
   - shotgunTile
-  - Undefined
-  - pause
-  - airwallJump
-  - airwallSlide
-  - airwallAccelerate
   layers:
   - Default
   - TransparentFX
