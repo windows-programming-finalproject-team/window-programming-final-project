@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
         Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
 
+        if (PullEnemy.grappling||backForce.isUsingBackForce)
+        {
+            return;
+        }
+
         if (!onWall)
         {
             if (!isSliding)
@@ -84,6 +89,13 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity = 2*movingSpeed*transform.forward;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "lava")
+        {
+            transform.GetComponent<playerDamage>().GetHit(10);
         }
     }
     private void OnCollisionStay(Collision collision)
