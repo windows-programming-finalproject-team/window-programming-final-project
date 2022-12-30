@@ -13,6 +13,9 @@ TagManager:
   - death
   - enemy
   - shotgunTile
+  - airwalljump
+  - airwallslide
+  - airwallaccelerate
   layers:
   - Default
   - TransparentFX
