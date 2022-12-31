@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(KatanaAttack))]
+
 public class PullEnemy : MonoBehaviour
 {
     private LineRenderer lr;
@@ -14,10 +16,12 @@ public class PullEnemy : MonoBehaviour
     [SerializeField] float pullForce = 20f;
     float minDistance = 5f;
     public static bool grappling = false;
+    Animator animator;
 
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
+        animator = GetComponent<Animator>();
         // make lr invisible
         lr.enabled = false;
     }
@@ -59,9 +63,14 @@ public class PullEnemy : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.1f);
             }
 
+            // too close with enemy, will stop pulling
             grappling = false;
             playerRb.velocity = Vector3.zero;
             lr.enabled = false;
+
+            //auto attack
+            animator.SetBool("isAttack", true);
+            GetComponent<KatanaAttack>().Attack();
         }
     }
 

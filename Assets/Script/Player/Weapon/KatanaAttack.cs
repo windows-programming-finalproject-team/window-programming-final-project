@@ -11,6 +11,7 @@ public class KatanaAttack : MonoBehaviour
     [SerializeField] float AttackRange = 0.025f;
     [SerializeField] Transform AttackPoint;
     [SerializeField] LayerMask enemyLayer;
+
     // Start is called before the first frame update
     void Start()
     {
