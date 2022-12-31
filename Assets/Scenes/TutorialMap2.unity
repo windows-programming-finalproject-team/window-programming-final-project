@@ -1091,6 +1091,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1107359338 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1340294008035055619, guid: 30959f93e2d40804e93f74b3cd711ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1687723758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1129926031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5163835952604701638, guid: 30959f93e2d40804e93f74b3cd711ed2,
@@ -17601,6 +17607,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3408274245064621994, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 1107359338}
     - target: {fileID: 3666964333957450578, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_Mesh
