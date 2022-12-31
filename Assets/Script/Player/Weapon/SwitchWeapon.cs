@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    [SerializeField] Transform Sword;
+    [SerializeField] Transform SwordPosition;
     [SerializeField] Transform Uzi;
     [SerializeField] Transform ShotGun;
     [SerializeField] Transform LightGun;
-    MeshRenderer SwordRender;
     MeshRenderer UziRender;
     MeshRenderer ShotGunRender;
     MeshRenderer LightGunRender;
     public bool isReloading = false;
-    // Start is called before the first frame update
+    public bool enablingKatana = true;
+
+    // how long does katana move on x axis when disabled
+    float katanaMoveDistance = 10000;
 
     void Start()
     {
-        SwordRender = Sword.GetComponent<MeshRenderer>();
         UziRender = Uzi.GetComponent<MeshRenderer>();
         ShotGunRender = ShotGun.GetComponent<MeshRenderer>();
         LightGunRender = LightGun.GetComponent<MeshRenderer>();
 
-        Uzi.gameObject.SetActive(false);
-        UziRender.enabled = false;
-        ShotGun.gameObject.SetActive(false);
-        ShotGunRender.enabled = false;
-        LightGun.gameObject.SetActive(false);
-        LightGunRender.enabled = false;
+        switchWeapon(0);
     }
 
     // Update is called once per frame
@@ -56,13 +52,14 @@ public class SwitchWeapon : MonoBehaviour
     {
         if (index < 0 || index >= 3)
         {
-            Debug.Log("weapon index doesn't exist");
             return;
         }
 
-        // disable every weapon
-        Sword.gameObject.SetActive(false);
-        SwordRender.enabled = false;
+        if (enablingKatana)
+        {
+            SwordPosition.localPosition += new Vector3(katanaMoveDistance, 0, 0);
+            enablingKatana = false;
+        }
         Uzi.gameObject.SetActive(false);
         UziRender.enabled = false;
         ShotGun.gameObject.SetActive(false);
@@ -72,8 +69,11 @@ public class SwitchWeapon : MonoBehaviour
 
         if (index == 0)
         {
-            Sword.gameObject.SetActive(true);
-            SwordRender.enabled = true;
+            if (!enablingKatana)
+            {
+                SwordPosition.localPosition -= new Vector3(katanaMoveDistance, 0, 0);
+                enablingKatana = true;
+            }
         }
         else if (index == 1)
         {
