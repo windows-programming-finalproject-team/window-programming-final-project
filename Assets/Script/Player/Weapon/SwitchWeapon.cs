@@ -4,29 +4,26 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
-    [SerializeField] Transform Sword;
+    [SerializeField] Transform SwordPosition;
     [SerializeField] Transform Uzi;
     [SerializeField] Transform ShotGun;
     [SerializeField] Transform LightGun;
-    MeshRenderer SwordRender;
     MeshRenderer UziRender;
     MeshRenderer ShotGunRender;
     MeshRenderer LightGunRender;
     public bool isReloading = false;
-    // Start is called before the first frame update
+    public bool enablingKatana = true;
+
+    // how long does katana move on x axis when disabled
+    float katanaMoveDistance = 10000;
+
     void Start()
     {
-        SwordRender = Sword.GetComponent<MeshRenderer>();
         UziRender = Uzi.GetComponent<MeshRenderer>();
         ShotGunRender = ShotGun.GetComponent<MeshRenderer>();
         LightGunRender = LightGun.GetComponent<MeshRenderer>();
 
-        Uzi.gameObject.SetActive(false);
-        UziRender.enabled = false;
-        ShotGun.gameObject.SetActive(false);
-        ShotGunRender.enabled = false;
-        LightGun.gameObject.SetActive(false);
-        LightGunRender.enabled = false;
+        switchWeapon(0);
     }
 
     // Update is called once per frame
@@ -34,47 +31,59 @@ public class SwitchWeapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && !isReloading)
         {
-            Sword.gameObject.SetActive(true);
-            SwordRender.enabled = true;
-            Uzi.gameObject.SetActive(false);
-            UziRender.enabled = false;
-            ShotGun.gameObject.SetActive(false);
-            ShotGunRender.enabled = false;
-            LightGun.gameObject.SetActive(false);
-            LightGunRender.enabled = false;
+            switchWeapon(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && !isReloading)
         {
-            Sword.gameObject.SetActive(false);
-            SwordRender.enabled = false;
-            Uzi.gameObject.SetActive(true);
-            UziRender.enabled = true;
-            ShotGun.gameObject.SetActive(false);
-            ShotGunRender.enabled = false;
-            LightGun.gameObject.SetActive(false);
-            LightGunRender.enabled = false;
+            switchWeapon(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && !isReloading)
         {
-            Sword.gameObject.SetActive(false);
-            SwordRender.enabled = false;
-            Uzi.gameObject.SetActive(false);
-            UziRender.enabled = false;
-            ShotGun.gameObject.SetActive(true);
-            ShotGunRender.enabled = true;
-            LightGun.gameObject.SetActive(false);
-            LightGunRender.enabled = false;
+            switchWeapon(2);
         }
+        // NOTE there's no laser gun
         if (Input.GetKeyDown(KeyCode.Alpha4) && !isReloading)
         {
-            Sword.gameObject.SetActive(false);
-            SwordRender.enabled = false;
-            Uzi.gameObject.SetActive(false);
-            UziRender.enabled = false;
-            ShotGun.gameObject.SetActive(false);
-            ShotGunRender.enabled = false;
-            LightGun.gameObject.SetActive(true);
-            LightGunRender.enabled = true;
+            switchWeapon(3);
+        }
+    }
+
+    public void switchWeapon(int index)
+    {
+        if (index < 0 || index >= 3)
+        {
+            return;
+        }
+
+        if (enablingKatana)
+        {
+            SwordPosition.localPosition += new Vector3(katanaMoveDistance, 0, 0);
+            enablingKatana = false;
+        }
+        Uzi.gameObject.SetActive(false);
+        UziRender.enabled = false;
+        ShotGun.gameObject.SetActive(false);
+        ShotGunRender.enabled = false;
+        LightGun.gameObject.SetActive(false);
+        LightGunRender.enabled = false;
+
+        if (index == 0)
+        {
+            if (!enablingKatana)
+            {
+                SwordPosition.localPosition -= new Vector3(katanaMoveDistance, 0, 0);
+                enablingKatana = true;
+            }
+        }
+        else if (index == 1)
+        {
+            Uzi.gameObject.SetActive(true);
+            UziRender.enabled = true;
+        }
+        else if (index == 2)
+        {
+            ShotGun.gameObject.SetActive(true);
+            ShotGunRender.enabled = true;
         }
     }
 }

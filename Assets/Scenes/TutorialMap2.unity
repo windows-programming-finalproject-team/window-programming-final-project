@@ -1091,6 +1091,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1129926031 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5163835952604701638, guid: 30959f93e2d40804e93f74b3cd711ed2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1687723758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1174430248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1359,12 +1365,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8cfbaf39209fbb41b20286d1604b126, type: 3}
---- !u!4 &1208574272 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 200074052247947634, guid: 30959f93e2d40804e93f74b3cd711ed2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1687723758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1217738811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 200074051560368542, guid: 30959f93e2d40804e93f74b3cd711ed2,
@@ -1386,12 +1386,6 @@ MonoBehaviour:
   camera: {fileID: 1769843029}
   power: 25
   shotgun: {fileID: 2064561278}
---- !u!54 &1217738824 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 200074051560368540, guid: 30959f93e2d40804e93f74b3cd711ed2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1687723758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1217738828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200074051560368528, guid: 30959f93e2d40804e93f74b3cd711ed2,
@@ -1424,6 +1418,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1297452867}
+--- !u!114 &1217738839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217738811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fae3ee137948948bc66072ef00c096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  katana: {fileID: 1485753938}
 --- !u!1001 &1232726940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17274,32 +17281,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1443164219}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1485753937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1010960929777573453, guid: 30959f93e2d40804e93f74b3cd711ed2,
+--- !u!4 &1485753938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 381811148263032055, guid: 30959f93e2d40804e93f74b3cd711ed2,
     type: 3}
   m_PrefabInstance: {fileID: 1687723758}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1485753943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485753937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76aa15e6cc664d9498a0a87a723f3852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsGrappleable:
-    serializedVersion: 2
-    m_Bits: 2048
-  gunTip: {fileID: 1208574272}
-  player: {fileID: 1217738828}
-  playerRb: {fileID: 1217738824}
-  camera: {fileID: 1769843029}
-  pullForce: 60
 --- !u!1001 &1619638116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17531,6 +17518,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 171091378, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
+      propertyPath: Sword
+      value: 
+      objectReference: {fileID: 1129926031}
+    - target: {fileID: 171091378, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
+      propertyPath: SwordPosition
+      value: 
+      objectReference: {fileID: 1129926031}
     - target: {fileID: 200074051110953744, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_Enabled
@@ -17601,6 +17596,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1515280867925131160, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666964333957450578, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1550514412580984892, guid: 49559b40fefd41a4f91118bdf52a0173,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 1232550160, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
