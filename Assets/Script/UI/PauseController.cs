@@ -18,5 +18,6 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        AudioListener.volume = 0;// mute player
     }
 }
