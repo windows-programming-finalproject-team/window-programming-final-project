@@ -17,6 +17,7 @@ public class PullEnemy : MonoBehaviour
     float minDistance = 5f;
     public static bool grappling = false;
     Animator animator;
+    [SerializeField] AudioSource ropeSound;
 
     private void Awake()
     {
@@ -51,6 +52,7 @@ public class PullEnemy : MonoBehaviour
                 yield break;
             }
 
+            ropeSound.Play();
 
             while (Input.GetKey(KeyCode.Q) && Vector3.Distance(player.position, grapplePoint) > minDistance)
             {
@@ -89,5 +91,6 @@ public class PullEnemy : MonoBehaviour
         lr.enabled = false;
         lr.positionCount = 0;
         grappling = false;
+        ropeSound.Stop();
     }
 }

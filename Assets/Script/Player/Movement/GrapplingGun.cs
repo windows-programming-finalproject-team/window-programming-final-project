@@ -9,10 +9,11 @@ public class GrapplingGun : MonoBehaviour
     public LayerMask whatIsGrappleable;
     public Transform gunTip, player;
     public new Transform camera;
-    private float maxDistance = 60f;
+    private float maxDistance = 70f;
     private SpringJoint joint;
     float minRopeScale=0.3f;
     float maxRopeScale = 0.6f;
+    [SerializeField] AudioSource swingAudioSource;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class GrapplingGun : MonoBehaviour
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
+            swingAudioSource.Play();
 
             float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
             //The distance grapple will try to keep from grapple point.
@@ -77,6 +79,7 @@ public class GrapplingGun : MonoBehaviour
         lr.enabled = false;
         lr.positionCount = 0;
         Destroy(joint);
+        swingAudioSource.Stop();
     }
     public bool IsGrappling()
     {
