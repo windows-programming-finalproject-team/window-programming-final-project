@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed;
     [SerializeField] float slideSpeed;
     [SerializeField] new Camera camera;
+    [SerializeField] AudioSource slideSound;
     bool isGround, isSliding, onWall;
     Rigidbody rb;
     MeshRenderer render;
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     float originalColliderHeight;
     float slidingColliderHeight = 1;
     float slidingCameraTransform = 1.5f;
+
+    bool hasPlayedSlideSound = false; // make sure it plays only once per slide
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +70,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                if (!hasPlayedSlideSound)
+                {
+                    slideSound.Play();
+                    hasPlayedSlideSound = true;
+                }
+
                 if (Input.GetKey(KeyCode.Space))
                 {
                     // break sliding
@@ -74,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
                     isSliding = false;
                     capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight - slidingColliderHeight) / 2, capsuleCollider.center.z);
                     capsuleCollider.height = originalColliderHeight;
+
+                    slideSound.Stop();
+                    hasPlayedSlideSound = false;
                     // jump
                     rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
                 }
@@ -83,6 +95,9 @@ public class PlayerMovement : MonoBehaviour
                     isSliding = false;
                     capsuleCollider.center = new Vector3(capsuleCollider.center.x, capsuleCollider.center.y + (originalColliderHeight-slidingColliderHeight)/2, capsuleCollider.center.z);
                     capsuleCollider.height = originalColliderHeight;
+
+                    slideSound.Stop();
+                    hasPlayedSlideSound = false;
                 }
             }
         }

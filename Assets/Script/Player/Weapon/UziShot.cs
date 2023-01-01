@@ -15,12 +15,8 @@ public class UziShot : MonoBehaviour
     int maxBulletNumber = 60;   
     SwitchWeapon switchScript;
     [SerializeField] AudioSource shootingSound;
-<<<<<<< HEAD
-=======
     [SerializeField] AudioSource reloadSound;
 
->>>>>>> 80a88e5 (Add reload SFX)
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();

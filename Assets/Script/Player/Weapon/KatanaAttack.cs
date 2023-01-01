@@ -13,11 +13,13 @@ public class KatanaAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] AudioSource swingSound;
     bool cooling = false;
+    SwitchWeapon switchScript;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = transform.GetComponent<Animator>();
+        switchScript=transform.parent.parent.parent.GetComponent<SwitchWeapon>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,9 @@ public class KatanaAttack : MonoBehaviour
         {
             animator.SetBool("isAttack", false);
         }
-        if (!isGrappling && Input.GetMouseButtonDown(0)&&!cooling)
+
+        // need to add enabling katana condition for its special disable mechanic
+        if (!isGrappling && Input.GetMouseButtonDown(0)&&!cooling&&switchScript.enablingKatana)
         {
             if (!swingSound.isPlaying)
             {
