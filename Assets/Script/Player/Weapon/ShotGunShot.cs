@@ -14,6 +14,7 @@ public class ShotGunShot : MonoBehaviour
     bool cooling = false;
     float coolingTime = 0.8f;
     SwitchWeapon switchScript;
+    [SerializeField] AudioSource reloadSound;
 
 
     // Start is called before the first frame update
@@ -66,6 +67,10 @@ public class ShotGunShot : MonoBehaviour
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
                 muzzleFlash.Stop();
+                if (!reloadSound.isPlaying)
+                {
+                    reloadSound.Play();
+                }
             }
         }
     }
@@ -104,5 +109,6 @@ public class ShotGunShot : MonoBehaviour
         CurrentBulletNumber = MaxBulletNumber;
         animator.SetBool("isReloading", false);
         switchScript.isReloading = false;
+        reloadSound.Stop();
     }
 }

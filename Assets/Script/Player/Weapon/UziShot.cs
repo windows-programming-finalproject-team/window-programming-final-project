@@ -15,6 +15,11 @@ public class UziShot : MonoBehaviour
     int maxBulletNumber = 60;   
     SwitchWeapon switchScript;
     [SerializeField] AudioSource shootingSound;
+<<<<<<< HEAD
+=======
+    [SerializeField] AudioSource reloadSound;
+
+>>>>>>> 80a88e5 (Add reload SFX)
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +67,10 @@ public class UziShot : MonoBehaviour
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
                 muzzleFlash.Stop();
+                if (!reloadSound.isPlaying)
+                {
+                    reloadSound.Play();
+                }
             }
         }
     }
@@ -91,6 +100,7 @@ public class UziShot : MonoBehaviour
         BulletNumber = maxBulletNumber;      
         animator.SetBool("isReloading", false);
         switchScript.isReloading = false;
+        reloadSound.Stop();
     }
  
 }
