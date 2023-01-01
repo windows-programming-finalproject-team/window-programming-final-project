@@ -11,6 +11,7 @@ public class SwitchWeapon : MonoBehaviour
     MeshRenderer ShotGunRender;
     public bool isReloading = false;
     public bool enablingKatana = true;
+    public bool isShooting = false;
 
     // how long does katana move on x axis when disabled
     float katanaMoveDistance = 10000;
@@ -42,7 +43,7 @@ public class SwitchWeapon : MonoBehaviour
 
     public void switchWeapon(int index)
     {
-        if (index < 0 || index >= 3)
+        if (index < 0 || index >= 3||isReloading||isShooting)
         {
             return;
         }
