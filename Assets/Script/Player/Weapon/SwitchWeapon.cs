@@ -7,10 +7,8 @@ public class SwitchWeapon : MonoBehaviour
     [SerializeField] Transform SwordPosition;
     [SerializeField] Transform Uzi;
     [SerializeField] Transform ShotGun;
-    [SerializeField] Transform LightGun;
     MeshRenderer UziRender;
-    //MeshRenderer ShotGunRender;
-    MeshRenderer LightGunRender;
+    MeshRenderer ShotGunRender;
     public bool isReloading = false;
     public bool enablingKatana = true;
 
@@ -20,8 +18,7 @@ public class SwitchWeapon : MonoBehaviour
     void Start()
     {
         UziRender = Uzi.GetComponent<MeshRenderer>();
-        //ShotGunRender = ShotGun.GetComponent<MeshRenderer>();
-        LightGunRender = LightGun.GetComponent<MeshRenderer>();
+        ShotGunRender = ShotGun.GetComponent<MeshRenderer>();
 
         switchWeapon(0);
     }
@@ -41,11 +38,6 @@ public class SwitchWeapon : MonoBehaviour
         {
             switchWeapon(2);
         }
-        // NOTE there's no laser gun
-        if (Input.GetKeyDown(KeyCode.Alpha4) && !isReloading)
-        {
-            switchWeapon(3);
-        }
     }
 
     public void switchWeapon(int index)
@@ -63,9 +55,7 @@ public class SwitchWeapon : MonoBehaviour
         Uzi.gameObject.SetActive(false);
         UziRender.enabled = false;
         ShotGun.gameObject.SetActive(false);
-        //ShotGunRender.enabled = false;
-        LightGun.gameObject.SetActive(false);
-        LightGunRender.enabled = false;
+        ShotGunRender.enabled = false;
 
         if (index == 0)
         {
@@ -83,7 +73,7 @@ public class SwitchWeapon : MonoBehaviour
         else if (index == 2)
         {
             ShotGun.gameObject.SetActive(true);
-            //ShotGunRender.enabled = true;
+            ShotGunRender.enabled = true;
         }
     }
 }

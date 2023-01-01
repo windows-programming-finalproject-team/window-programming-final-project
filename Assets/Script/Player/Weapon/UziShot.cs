@@ -31,7 +31,8 @@ public class UziShot : MonoBehaviour
         // NOTE add else to prevent reloading while shooting
 
         // Debug ammo count
-        Debug.Log($"Uzi ammo: {BulletNumber}");
+        //Debug.Log($"Uzi ammo: {BulletNumber}");
+        
         // start shooting
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
