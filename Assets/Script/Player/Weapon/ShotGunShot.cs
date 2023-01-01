@@ -14,6 +14,9 @@ public class ShotGunShot : MonoBehaviour
     bool cooling = false;
     float coolingTime = 0.8f;
     SwitchWeapon switchScript;
+    [SerializeField] AudioSource reloadSound;
+    [SerializeField] AudioSource shootSound;
+
 
 
     // Start is called before the first frame update
@@ -36,9 +39,6 @@ public class ShotGunShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // for debug
-        Debug.Log($"Shotgun ammo:{CurrentBulletNumber}");
-
         info = animator.GetCurrentAnimatorStateInfo(0);
         if (Input.GetMouseButtonDown(0) && CurrentBulletNumber > 0&& ! cooling)
         {
@@ -50,6 +50,7 @@ public class ShotGunShot : MonoBehaviour
             // prevent continuous shooting like UZI
             cooling = true;
             StartCoroutine(ResetCooling());
+            shootSound.Play();
         }
         else if (CurrentBulletNumber <= 0 || Input.GetMouseButtonUp(0)||cooling)
         {
@@ -66,6 +67,10 @@ public class ShotGunShot : MonoBehaviour
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
                 muzzleFlash.Stop();
+                if (!reloadSound.isPlaying)
+                {
+                    reloadSound.Play();
+                }
             }
         }
     }
@@ -104,5 +109,6 @@ public class ShotGunShot : MonoBehaviour
         CurrentBulletNumber = MaxBulletNumber;
         animator.SetBool("isReloading", false);
         switchScript.isReloading = false;
+        reloadSound.Stop();
     }
 }
