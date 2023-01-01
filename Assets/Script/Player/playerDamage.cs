@@ -7,6 +7,10 @@ public class playerDamage : MonoBehaviour
 {
     [SerializeField] float Life = 10;
     TextMeshProUGUI hp;
+    private void Start()
+    {
+        hp = GetComponent<SwitchWeaponCanvas>().HP;
+    }
     public void GetHit(float damage)
     {
         Life -= damage;
