@@ -28,10 +28,11 @@ public class ShotGunShot : MonoBehaviour
             animator.SetBool("isShotting", true);
             Shot();
         }
-        if (CurrentBulletNumber <= 0 || Input.GetMouseButtonUp(0))
+        else if (CurrentBulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
         }
+
         if (Input.GetKeyDown(KeyCode.R) || CurrentBulletNumber == 0)
         {
             if (CurrentBulletNumber < MaxBulletNumber)
@@ -41,7 +42,7 @@ public class ShotGunShot : MonoBehaviour
             }
         }
     }
-    // called in animation event
+
     void Shot()
     {
         if (CurrentBulletNumber > 0)
@@ -53,6 +54,7 @@ public class ShotGunShot : MonoBehaviour
                 rb = ShotGunBullet.GetComponent<Rigidbody>();
                 rb.velocity = 40 * ShotGunBullet.transform.forward;
             }
+            Debug.Log("shot, minus bullet");
             CurrentBulletNumber--;
         }
     }
