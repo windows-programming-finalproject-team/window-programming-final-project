@@ -12,6 +12,7 @@ public class UziShot : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     int maxBulletNumber = 60;
     SwitchWeapon switchScript;
+    [SerializeField] AudioSource shootingSound;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,14 @@ public class UziShot : MonoBehaviour
             animator.SetBool("isShotting", true);
             muzzleFlash.Play();
             switchScript.isShooting = true;
+            shootingSound.Play();
         }
         // end shooting when you stopped/ you can't
         else if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
             muzzleFlash.Stop();
+            shootingSound.Stop();
             
             StartCoroutine(endShooting());
         }
