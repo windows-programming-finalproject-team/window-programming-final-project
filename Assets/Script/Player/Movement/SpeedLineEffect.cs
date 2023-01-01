@@ -21,13 +21,14 @@ public class SpeedLineEffect : MonoBehaviour
         {
             if (rb.velocity.magnitude < thresholdVelocity)
             {
-                speedEffect.enableEmission = false;
+                speedEffect.Stop();
                 yield return new WaitForSecondsRealtime(1);
             }
             else
             {
-                speedEffect.enableEmission = true;
+                speedEffect.Play();
                 yield return new WaitForSecondsRealtime(0.1f);
+                // prevent updating every while loop
             }
         }
     }
