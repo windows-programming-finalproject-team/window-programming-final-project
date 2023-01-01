@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UziShot : MonoBehaviour
 {
     Animator animator;
     AnimatorStateInfo info;
     [SerializeField] GameObject Bullet;
-    Rigidbody rb;
-    [SerializeField] int BulletNumber = 60;
+    Rigidbody rb;    
+    [SerializeField] public static int BulletNumber = 60;
     [SerializeField] ParticleSystem muzzleFlash;
-    int maxBulletNumber = 60;
+    int maxBulletNumber = 60;   
     SwitchWeapon switchScript;
     [SerializeField] AudioSource shootingSound;
-
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();
-        muzzleFlash.Stop();
+        switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();     
+        muzzleFlash.Stop();        
     }
 
     // need to use this function for switching weapon
@@ -33,8 +33,7 @@ public class UziShot : MonoBehaviour
     {
         // Debug ammo count
         //Debug.Log($"Uzi ammo: {BulletNumber}");
-        
-        // start shooting
+        // start shooting       
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
             // lmao, what is "isShotting"
@@ -78,7 +77,7 @@ public class UziShot : MonoBehaviour
         if (BulletNumber > 0)
         {
             GameObject UziBullet = Instantiate(Bullet, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
-            BulletNumber--;
+            BulletNumber--;          
             rb = UziBullet.GetComponent<Rigidbody>();
             rb.velocity = 50 * UziBullet.transform.forward;
         }
@@ -87,8 +86,9 @@ public class UziShot : MonoBehaviour
     // called in animation event
     void Reload()
     {
-        BulletNumber = maxBulletNumber;
+        BulletNumber = maxBulletNumber;      
         animator.SetBool("isReloading", false);
         switchScript.isReloading = false;
     }
+ 
 }
