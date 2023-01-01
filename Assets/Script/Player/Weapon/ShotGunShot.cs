@@ -8,8 +8,8 @@ public class ShotGunShot : MonoBehaviour
     AnimatorStateInfo info;
     [SerializeField] GameObject Bullet;
     Rigidbody rb;
-    [SerializeField] int MaxBulletNumber = 3;
-    int CurrentBulletNumber = 0;
+    [SerializeField] public static int MaxBulletNumber = 3;
+    public static int CurrentBulletNumber = 0;
     [SerializeField] ParticleSystem muzzleFlash;
     bool cooling = false;
     float coolingTime = 0.8f;

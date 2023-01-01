@@ -5,6 +5,6 @@ using TMPro;
 
 public class SwitchWeaponCanvas : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI bulletNum;
+    [SerializeField] public TextMeshProUGUI bulletNum;
     [SerializeField] TextMeshProUGUI HP;
 }
