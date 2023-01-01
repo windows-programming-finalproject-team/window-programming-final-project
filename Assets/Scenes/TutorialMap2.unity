@@ -17602,10 +17602,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 374284583722001521, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1515280867925131160, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218898305557747416, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3408274245064621994, guid: 30959f93e2d40804e93f74b3cd711ed2,
         type: 3}
@@ -17618,6 +17628,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1550514412580984892, guid: 49559b40fefd41a4f91118bdf52a0173,
         type: 3}
+    - target: {fileID: 3962172135936866888, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284122338916689173, guid: 30959f93e2d40804e93f74b3cd711ed2,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1232550160, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}

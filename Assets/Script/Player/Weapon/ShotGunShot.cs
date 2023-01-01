@@ -13,11 +13,15 @@ public class ShotGunShot : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     bool cooling = false;
     float coolingTime = 0.8f;
+    SwitchWeapon switchScript;
+
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();
+
         CurrentBulletNumber = MaxBulletNumber;
         muzzleFlash.Stop();
     }
@@ -26,6 +30,7 @@ public class ShotGunShot : MonoBehaviour
     private void OnEnable()
     {
         muzzleFlash.Stop();
+        cooling = false;
     }
 
     // Update is called once per frame
@@ -40,6 +45,7 @@ public class ShotGunShot : MonoBehaviour
             animator.SetBool("isShotting", true);
             Shot();
             muzzleFlash.Play();
+            switchScript.isShooting = true;
 
             // prevent continuous shooting like UZI
             cooling = true;
@@ -49,6 +55,8 @@ public class ShotGunShot : MonoBehaviour
         {
             animator.SetBool("isShotting", false);
             muzzleFlash.Stop();
+            StartCoroutine(endShooting());
+
         }
 
         if (Input.GetKeyDown(KeyCode.R) || CurrentBulletNumber == 0)
@@ -66,6 +74,13 @@ public class ShotGunShot : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(coolingTime);
         cooling = false;
+    }
+
+    // wait for shooting animation end, then change state
+    IEnumerator endShooting()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        switchScript.isShooting = false;
     }
 
     void Shot()
@@ -88,6 +103,6 @@ public class ShotGunShot : MonoBehaviour
     {
         CurrentBulletNumber = MaxBulletNumber;
         animator.SetBool("isReloading", false);
-        transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = false;
+        switchScript.isReloading = false;
     }
 }

@@ -11,11 +11,14 @@ public class UziShot : MonoBehaviour
     [SerializeField] int BulletNumber = 60;
     [SerializeField] ParticleSystem muzzleFlash;
     int maxBulletNumber = 60;
+    SwitchWeapon switchScript;
+    [SerializeField] AudioSource shootingSound;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();
         muzzleFlash.Stop();
     }
 
@@ -28,8 +31,6 @@ public class UziShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // NOTE add else to prevent reloading while shooting
-
         // Debug ammo count
         //Debug.Log($"Uzi ammo: {BulletNumber}");
         
@@ -39,12 +40,17 @@ public class UziShot : MonoBehaviour
             // lmao, what is "isShotting"
             animator.SetBool("isShotting", true);
             muzzleFlash.Play();
+            switchScript.isShooting = true;
+            shootingSound.Play();
         }
         // end shooting when you stopped/ you can't
         else if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
             muzzleFlash.Stop();
+            shootingSound.Stop();
+            
+            StartCoroutine(endShooting());
         }
 
         // start reloading
@@ -57,6 +63,13 @@ public class UziShot : MonoBehaviour
                 muzzleFlash.Stop();
             }
         }
+    }
+
+    // wait for shooting animation end, then change state
+    IEnumerator endShooting()
+    {
+        yield return new WaitForSecondsRealtime(0.6f);
+        switchScript.isShooting = false;
     }
 
     // called in animation event
@@ -76,6 +89,6 @@ public class UziShot : MonoBehaviour
     {
         BulletNumber = maxBulletNumber;
         animator.SetBool("isReloading", false);
-        transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = false;
+        switchScript.isReloading = false;
     }
 }
