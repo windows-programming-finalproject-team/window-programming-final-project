@@ -6035,7 +6035,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5869a34b0d237124e84ddbd65eb0e204, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 715c83ef12ed24e43b7a72ffa0367b25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6594,6 +6594,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
+  swingSound: {fileID: 8345412013925576943}
 --- !u!114 &200074051110953747
 MonoBehaviour:
   m_ObjectHideFlags: 0
