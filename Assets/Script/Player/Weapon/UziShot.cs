@@ -1,3 +1,4 @@
+using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,16 +32,17 @@ public class UziShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug ammo count
-        //Debug.Log($"Uzi ammo: {BulletNumber}");
-        // start shooting       
+
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
             // lmao, what is "isShotting"
             animator.SetBool("isShotting", true);
             muzzleFlash.Play();
             switchScript.isShooting = true;
-            shootingSound.Play();
+            if (!shootingSound.isPlaying)
+            {
+                shootingSound.Play();
+            }
         }
         // end shooting when you stopped/ you can't
         else if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
@@ -48,7 +50,7 @@ public class UziShot : MonoBehaviour
             animator.SetBool("isShotting", false);
             muzzleFlash.Stop();
             shootingSound.Stop();
-            
+
             StartCoroutine(endShooting());
         }
 
