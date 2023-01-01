@@ -8,37 +8,43 @@ public class ShotGunShot : MonoBehaviour
     AnimatorStateInfo info;
     [SerializeField] GameObject Bullet;
     Rigidbody rb;
-    [SerializeField] int BulletNumber = 3;
+    [SerializeField] int MaxBulletNumber = 3;
+    int CurrentBulletNumber = 0;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        CurrentBulletNumber = MaxBulletNumber;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($"Shotgun ammo:{CurrentBulletNumber}");
+
         info = animator.GetCurrentAnimatorStateInfo(0);
-        if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
+        if (Input.GetMouseButtonDown(0) && CurrentBulletNumber > 0)
         {
             animator.SetBool("isShotting", true);
+            Shot();
         }
-        if (BulletNumber <= 0 || Input.GetMouseButtonUp(0))
+        if (CurrentBulletNumber <= 0 || Input.GetMouseButtonUp(0))
         {
             animator.SetBool("isShotting", false);
         }
-        if (Input.GetKeyDown(KeyCode.R) || BulletNumber == 0)
+        if (Input.GetKeyDown(KeyCode.R) || CurrentBulletNumber == 0)
         {
-            if (BulletNumber < 60)
+            if (CurrentBulletNumber < MaxBulletNumber)
             {
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
             }
         }
     }
+    // called in animation event
     void Shot()
     {
-        if (BulletNumber > 0)
+        if (CurrentBulletNumber > 0)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -47,12 +53,14 @@ public class ShotGunShot : MonoBehaviour
                 rb = ShotGunBullet.GetComponent<Rigidbody>();
                 rb.velocity = 40 * ShotGunBullet.transform.forward;
             }
-            BulletNumber--;
+            CurrentBulletNumber--;
         }
     }
+
+    // called in animation event
     void Reload()
     {
-        BulletNumber = 3;
+        CurrentBulletNumber = MaxBulletNumber;
         animator.SetBool("isReloading", false);
         transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = false;
     }

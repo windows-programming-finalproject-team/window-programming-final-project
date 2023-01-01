@@ -11,7 +11,7 @@ public class UziShot : MonoBehaviour
     [SerializeField] int BulletNumber = 60;
     [SerializeField] ParticleSystem muzzleFlash;
     int maxBulletNumber = 60;
-    float reloadTime = 0.9f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +28,10 @@ public class UziShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"UZI ammo:{BulletNumber}");
         // NOTE add else to prevent reloading while shooting
 
+        // Debug ammo count
+        Debug.Log($"Uzi ammo: {BulletNumber}");
         // start shooting
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
@@ -53,19 +54,11 @@ public class UziShot : MonoBehaviour
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
                 muzzleFlash.Stop();
-                
-                // force player to wait certain time so I don't need to detect animation
-                StartCoroutine(waitForReload());
             }
         }
     }
 
-    IEnumerator waitForReload()
-    {
-        yield return new WaitForSecondsRealtime(reloadTime);
-        DoneReloading();
-    }
-
+    // called in animation event
     void Shot()
     {
         if (BulletNumber > 0)
@@ -76,7 +69,9 @@ public class UziShot : MonoBehaviour
             rb.velocity = 50 * UziBullet.transform.forward;
         }
     }
-    void DoneReloading()
+
+    // called in animation event
+    void Reload()
     {
         BulletNumber = maxBulletNumber;
         animator.SetBool("isReloading", false);
