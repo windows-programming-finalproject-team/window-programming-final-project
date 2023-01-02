@@ -18,6 +18,7 @@ public class PullEnemy : MonoBehaviour
     public static bool grappling = false;
     Animator animator;
     [SerializeField] AudioSource ropeSound;
+    [SerializeField] AudioSource attackSound;
 
     private void Awake()
     {
@@ -72,6 +73,7 @@ public class PullEnemy : MonoBehaviour
 
             //auto attack
             animator.SetBool("isAttack", true);
+            attackSound.Play();
             GetComponent<KatanaAttack>().Attack();
         }
     }
