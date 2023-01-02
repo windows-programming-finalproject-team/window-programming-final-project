@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace SlimUI.ModernMenu{
 	public class MainMenuNew : MonoBehaviour {
-		Animator CameraObject;
+		Animator CameraObject;       
 /*
 		[Header("Loaded Scene")]
 		[Tooltip("The name of the scene in the build settings that will load")]
@@ -87,12 +87,13 @@ namespace SlimUI.ModernMenu{
 			exitMenu.SetActive(false);
 			if(extrasMenu) extrasMenu.SetActive(false);
 			firstMenu.SetActive(true);
-			mainMenu.SetActive(true);
+			mainMenu.SetActive(true);           
 
 			SetThemeColors();
 		}
+        
 
-		void SetThemeColors(){
+        void SetThemeColors(){
 			if(theme == Theme.custom1){
 				themeController.currentColor = themeController.custom1.graphic1;
 				themeController.textColor = themeController.custom1.text1;

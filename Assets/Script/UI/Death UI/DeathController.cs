@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeathController : MonoBehaviour
 {
     [SerializeField] GameObject target;
-    [SerializeField] AudioSource deathSound;
+    [SerializeField] AudioSource deathSound; 
     public static bool isDeath;
     private void Start()
     {
