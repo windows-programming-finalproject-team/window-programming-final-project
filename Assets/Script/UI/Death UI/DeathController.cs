@@ -6,11 +6,18 @@ public class DeathController : MonoBehaviour
 {
     [SerializeField] GameObject target;
     [SerializeField] AudioSource deathSound;
+    public static bool isDeath;
+    private void Start()
+    {
+        isDeath = false;
+    }
     private void Update()
     {
+
     }
     public void DeathEvent()
     {
+        isDeath = true;
         target.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
