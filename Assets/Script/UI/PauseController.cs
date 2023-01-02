@@ -5,9 +5,10 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] GameObject target;
+    [SerializeField] GameObject targetDeath;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) && DeathController.isDeath==false)
         {
             PauseGame();
         }
