@@ -7,7 +7,12 @@ public class UziBullet : MonoBehaviour
     [SerializeField] float damage = 1;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "enemy")
+        if (other.isTrigger)
+        {
+            return;
+        }
+
+        if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
             Destroy(transform.parent.gameObject);
@@ -24,6 +29,11 @@ public class UziBullet : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
@@ -41,6 +51,11 @@ public class UziBullet : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
