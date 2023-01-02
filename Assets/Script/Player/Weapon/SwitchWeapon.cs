@@ -37,19 +37,19 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !isReloading)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !isReloading && !isShooting)
         {
             switchWeapon(0);
             im.sprite = katana;
             option = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && !isReloading)
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !isReloading && !isShooting)
         {
             switchWeapon(1);
             im.sprite = uzi;
             option = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && !isReloading)
+        if (Input.GetKeyDown(KeyCode.Alpha3) && !isReloading && !isShooting)
         {
             switchWeapon(2);
             im.sprite = shotgun;
