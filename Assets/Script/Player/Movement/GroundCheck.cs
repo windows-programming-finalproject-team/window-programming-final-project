@@ -9,6 +9,6 @@ public class GroundCheck : MonoBehaviour
 
     private void Update()
     {
-        isOnGround = Physics.CheckSphere(transform.position, .1f, ground);
+        isOnGround = Physics.CheckSphere(transform.position, .2f, ground);
     }
 }
