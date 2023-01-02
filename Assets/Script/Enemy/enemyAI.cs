@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))] 
-[RequireComponent(typeof(AudioSource))]
 public class enemyAI : MonoBehaviour
 {
     enemySight sightScript;
@@ -11,7 +10,7 @@ public class enemyAI : MonoBehaviour
     [SerializeField] GameObject enemyBullet;
     [SerializeField]Transform gunTip;
     [SerializeField] ParticleSystem muzzleFlash;
-    AudioSource shootSound;
+    [SerializeField]AudioSource shootSound;
     float coolingTime = 0.7f;
     bool aimingAtPlayer=false;
     float shootingTime = 0.1f;
@@ -20,7 +19,6 @@ public class enemyAI : MonoBehaviour
     {
         sightScript = transform.GetComponentInChildren<enemySight>();
         animator=GetComponent<Animator>();
-        shootSound=GetComponent<AudioSource>();
         muzzleFlash.Stop();
     }
 
