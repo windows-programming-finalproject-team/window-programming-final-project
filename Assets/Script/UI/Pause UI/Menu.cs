@@ -9,5 +9,6 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
+        PauseController.isPausing = false;
     }
 }

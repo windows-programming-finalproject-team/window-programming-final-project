@@ -13,5 +13,6 @@ public class Pause : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         AudioListener.pause = false;
+        PauseController.isPausing = false;
     }
 }

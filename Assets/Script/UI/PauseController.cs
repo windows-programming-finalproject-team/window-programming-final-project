@@ -6,6 +6,7 @@ public class PauseController : MonoBehaviour
 {
     [SerializeField] GameObject target;
     [SerializeField] GameObject targetDeath;
+    public static bool isPausing =false;
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape) && DeathController.isDeath==false)
@@ -15,6 +16,7 @@ public class PauseController : MonoBehaviour
     }
     void PauseGame()
     {
+        isPausing = true;
         target.SetActive(true);
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
