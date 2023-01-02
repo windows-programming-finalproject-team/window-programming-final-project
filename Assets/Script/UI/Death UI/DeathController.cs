@@ -14,7 +14,7 @@ public class DeathController : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        AudioListener.volume = 0; // mute player
+        AudioListener.pause = true; // mute player
     }
 
     private void OnCollisionEnter(Collision collision)
