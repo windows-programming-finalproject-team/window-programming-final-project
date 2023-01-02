@@ -24,8 +24,8 @@ public class GrapplingGun : MonoBehaviour
 
     private void Update()
     {
+        lr.positionCount = 2;
         DrawRope();
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
             StartGrapple();
