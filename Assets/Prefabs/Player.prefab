@@ -7044,6 +7044,7 @@ MonoBehaviour:
   camera: {fileID: 200074052726499198}
   pullForce: 60
   ropeSound: {fileID: 157065484}
+  attackSound: {fileID: 8345412013925576943}
 --- !u!1001 &1178231549845833049
 PrefabInstance:
   m_ObjectHideFlags: 0
