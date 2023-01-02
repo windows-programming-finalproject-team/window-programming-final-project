@@ -12,9 +12,9 @@ public class PullEnemy : MonoBehaviour
     public Transform gunTip, player;
     [SerializeField] Rigidbody playerRb;
     public new Transform camera;
-    private float maxDistance = 60f;
+    private float maxDistance = 100f;
     [SerializeField] float pullForce = 20f;
-    float minDistance = 5f;
+    float minDistance = 2f;
     public static bool grappling = false;
     Animator animator;
     [SerializeField] AudioSource ropeSound;

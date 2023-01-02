@@ -57,7 +57,6 @@ public class ShotGunShot : MonoBehaviour
             animator.SetBool("isShotting", false);
             muzzleFlash.Stop();
             StartCoroutine(endShooting());
-
         }
 
         if (Input.GetKeyDown(KeyCode.R) || CurrentBulletNumber == 0)
@@ -66,7 +65,6 @@ public class ShotGunShot : MonoBehaviour
             {
                 transform.parent.parent.parent.GetComponent<SwitchWeapon>().isReloading = true;
                 animator.SetBool("isReloading", true);
-                muzzleFlash.Stop();
                 if (!reloadSound.isPlaying)
                 {
                     reloadSound.Play();

@@ -24,7 +24,7 @@ public class enemyAI : MonoBehaviour
 
     private void Update()
     {
-        if (sightScript.playerInSight&& !animator.GetBool("dead"))
+        if (sightScript.playerInSight&& !animator.GetBool("dead")&& !PauseController.isPausing)
         {
             animator.SetBool("playerInSight", true);
             
@@ -39,7 +39,7 @@ public class enemyAI : MonoBehaviour
                 StartCoroutine(shootWithCooling());
             }
         }
-        else if(!sightScript.playerInSight||animator.GetBool("dead"))
+        else if(!sightScript.playerInSight||animator.GetBool("dead")||PauseController.isPausing)
         {
             // pause shooting when paused
             animator.SetBool("playerInSight", false);

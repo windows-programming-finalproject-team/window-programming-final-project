@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3536118110374403925}
+  targetDeath: {fileID: 0}
 --- !u!114 &1629135702
 MonoBehaviour:
   m_ObjectHideFlags: 0

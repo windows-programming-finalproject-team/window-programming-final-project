@@ -7,7 +7,7 @@ public class enemyDamage : MonoBehaviour
 {
     [SerializeField] float Life = 9;
     Animator animator;
-    float destroySeconds = 3f;
+    float destroySeconds = 2f;
     float explosionTime = 1.8f;
     [SerializeField] ParticleSystem deathExplosion;
     [SerializeField] AudioSource explosionSound;
