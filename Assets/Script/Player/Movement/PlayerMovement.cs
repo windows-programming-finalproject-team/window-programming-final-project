@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 newHorizontalSpeed = horizontalInput * movingSpeed * transform.right;
         Vector3 newVerticalSpeed = verticalInput * movingSpeed * transform.forward;
+        isGround = GetComponentInChildren<GroundCheck>().isOnGround;
 
         if (PullEnemy.grappling||backForce.isUsingBackForce)
         {
@@ -112,11 +113,12 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.GetComponent<playerDamage>().GetHit(10);
         }
+        //if (collision.gameObject.tag == "ground") isGround = true;
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "ground") isGround = true;
-        else if (collision.gameObject.tag == "wallrunTile")
+        //if (collision.gameObject.tag == "ground") isGround = true;
+        if (collision.gameObject.tag == "wallrunTile")
         {
             onWall = true;
             rb.velocity = new Vector3(0, 0, 0);
@@ -127,8 +129,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         onWall = false;
-        if (collision.gameObject.tag == "ground") isGround = false;
-        else if (collision.gameObject.tag == "wallrunTile")
+        //if (collision.gameObject.tag == "ground") isGround = false;
+        if (collision.gameObject.tag == "wallrunTile")
         {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
             rb.AddForce(transform.forward * 30);
