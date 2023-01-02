@@ -9,18 +9,22 @@ public class enemyAI : MonoBehaviour
     Animator animator;
     [SerializeField] GameObject enemyBullet;
     [SerializeField]Transform gunTip;
-    float coolingTime = 1;
+    [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField]AudioSource shootSound;
+    float coolingTime = 0.7f;
     bool aimingAtPlayer=false;
+    float shootingTime = 0.1f;
 
     private void Start()
     {
         sightScript = transform.GetComponentInChildren<enemySight>();
         animator=GetComponent<Animator>();
+        muzzleFlash.Stop();
     }
 
     private void Update()
     {
-        if (sightScript.playerInSight)
+        if (sightScript.playerInSight&& !animator.GetBool("dead"))
         {
             animator.SetBool("playerInSight", true);
             
@@ -35,11 +39,12 @@ public class enemyAI : MonoBehaviour
                 StartCoroutine(shootWithCooling());
             }
         }
-        else if(!sightScript.playerInSight)
+        else if(!sightScript.playerInSight||animator.GetBool("dead"))
         {
             // pause shooting when paused
             animator.SetBool("playerInSight", false);
             aimingAtPlayer = false;
+            muzzleFlash.Stop();
         }
     }
 
@@ -47,8 +52,10 @@ public class enemyAI : MonoBehaviour
     {
         while (aimingAtPlayer)
         {
-            yield return new WaitForSecondsRealtime(coolingTime);
+            yield return new WaitForSecondsRealtime(coolingTime-shootingTime);
             Shoot();
+            yield return new WaitForSecondsRealtime(shootingTime);
+            muzzleFlash.Stop();
         }
     }
 
@@ -60,5 +67,8 @@ public class enemyAI : MonoBehaviour
         Vector3 shootDirection=(sightScript.playerPosition-gunTip.position).normalized;
         
         rb.velocity = 10 * shootDirection;
+
+        shootSound.Play();
+        muzzleFlash.Play();
     }
 }
