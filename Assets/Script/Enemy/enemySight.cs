@@ -5,7 +5,9 @@ using UnityEngine;
 public class enemySight : MonoBehaviour
 {
     public bool playerInSight = false;
+    public Transform player;
     float maxDistance = 10000f;// longer than the sight collider
+
     private void OnTriggerStay(Collider other)
     {
         // Check if the other object is within the cone collider
@@ -23,6 +25,7 @@ public class enemySight : MonoBehaviour
 
                 // not blocked by wall/ other stuff
 
+                player = other.transform;
                 playerInSight = true;
             }
         }
