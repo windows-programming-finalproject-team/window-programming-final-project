@@ -7,6 +7,11 @@ public class ShotGunBullet : MonoBehaviour
     [SerializeField] float damage = 3;
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
@@ -24,6 +29,11 @@ public class ShotGunBullet : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
@@ -41,6 +51,11 @@ public class ShotGunBullet : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.isTrigger)
+        {
+            return;
+        }
+
         if (other.gameObject.tag == "enemy")
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);

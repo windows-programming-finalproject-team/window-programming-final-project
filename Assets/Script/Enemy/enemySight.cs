@@ -5,8 +5,9 @@ using UnityEngine;
 public class enemySight : MonoBehaviour
 {
     public bool playerInSight = false;
-    public Transform player;
+    public Vector3 playerPosition;
     float maxDistance = 10000f;// longer than the sight collider
+    [SerializeField] Transform playerCam; // need this because player position is wrong
 
     private void OnTriggerStay(Collider other)
     {
@@ -24,8 +25,7 @@ public class enemySight : MonoBehaviour
                 }
 
                 // not blocked by wall/ other stuff
-
-                player = other.transform;
+                playerPosition = other.transform.position;
                 playerInSight = true;
             }
         }
