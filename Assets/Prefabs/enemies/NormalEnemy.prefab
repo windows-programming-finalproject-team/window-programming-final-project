@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 5504103087101611435}
   - component: {fileID: 1672779391}
   - component: {fileID: 7508116668849157734}
+  - component: {fileID: 64256178}
   m_Layer: 11
   m_Name: NormalEnemy
   m_TagString: enemy
@@ -680,6 +681,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &64256178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629292642244850291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9964634bfc0f1eb4a9b1d67de25159a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 9
 --- !u!1 &2866663197525750358
 GameObject:
   m_ObjectHideFlags: 0
