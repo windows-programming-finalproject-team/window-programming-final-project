@@ -10,15 +10,18 @@ public class enemyAI : MonoBehaviour
     Animator animator;
     [SerializeField] GameObject enemyBullet;
     [SerializeField]Transform gunTip;
+    [SerializeField] ParticleSystem muzzleFlash;
     AudioSource shootSound;
     float coolingTime = 0.7f;
     bool aimingAtPlayer=false;
+    float shootingTime = 0.1f;
 
     private void Start()
     {
         sightScript = transform.GetComponentInChildren<enemySight>();
         animator=GetComponent<Animator>();
         shootSound=GetComponent<AudioSource>();
+        muzzleFlash.Stop();
     }
 
     private void Update()
@@ -43,6 +46,7 @@ public class enemyAI : MonoBehaviour
             // pause shooting when paused
             animator.SetBool("playerInSight", false);
             aimingAtPlayer = false;
+            muzzleFlash.Stop();
         }
     }
 
@@ -50,8 +54,10 @@ public class enemyAI : MonoBehaviour
     {
         while (aimingAtPlayer)
         {
-            yield return new WaitForSecondsRealtime(coolingTime);
+            yield return new WaitForSecondsRealtime(coolingTime-shootingTime);
             Shoot();
+            yield return new WaitForSecondsRealtime(shootingTime);
+            muzzleFlash.Stop();
         }
     }
 
@@ -65,5 +71,6 @@ public class enemyAI : MonoBehaviour
         rb.velocity = 10 * shootDirection;
 
         shootSound.Play();
+        muzzleFlash.Play();
     }
 }
