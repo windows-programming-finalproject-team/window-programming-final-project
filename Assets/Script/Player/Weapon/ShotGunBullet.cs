@@ -5,6 +5,14 @@ using UnityEngine;
 public class ShotGunBullet : MonoBehaviour
 {
     [SerializeField] float damage = 1;
+    [SerializeField] ParticleSystem hitSpark;
+    [SerializeField] ParticleSystem explosion;
+    [SerializeField] Rigidbody rb;
+    private void Start()
+    {
+        hitSpark.Stop();
+        explosion.Stop();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger)
@@ -12,14 +20,28 @@ public class ShotGunBullet : MonoBehaviour
             return;
         }
 
-        if (other.gameObject.tag == "enemy")
+        if (other.gameObject.CompareTag("enemy"))
         {
             other.gameObject.GetComponent<enemyDamage>().GetHit(damage);
-            Destroy(transform.parent.gameObject);
+            // make spark stay
+            rb.velocity = Vector3.zero;
+            explosion.Play();
+            StartCoroutine(destroyBullet());
         }
         else
         {
-            Destroy(transform.parent.gameObject);
+            rb.velocity = Vector3.zero;
+            hitSpark.Play();
+            StartCoroutine(destroyBullet());
+
         }
+    }
+
+    IEnumerator destroyBullet()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        explosion.Stop();
+        hitSpark.Stop();
+        Destroy(transform.parent.gameObject);
     }
 }
