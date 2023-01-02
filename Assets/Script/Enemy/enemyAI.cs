@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))] 
+[RequireComponent(typeof(AudioSource))]
 public class enemyAI : MonoBehaviour
 {
     enemySight sightScript;
     Animator animator;
     [SerializeField] GameObject enemyBullet;
     [SerializeField]Transform gunTip;
-    float coolingTime = 1;
+    AudioSource shootSound;
+    float coolingTime = 0.7f;
     bool aimingAtPlayer=false;
 
     private void Start()
     {
         sightScript = transform.GetComponentInChildren<enemySight>();
         animator=GetComponent<Animator>();
+        shootSound=GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -60,5 +63,7 @@ public class enemyAI : MonoBehaviour
         Vector3 shootDirection=(sightScript.playerPosition-gunTip.position).normalized;
         
         rb.velocity = 10 * shootDirection;
+
+        shootSound.Play();
     }
 }
