@@ -6,3 +6,6 @@ This project is done by 王柏凱、張辰凱、張原愷
 # Detail
 
 1.Unity Editor version : 2021.3.13f1
+
+# Credits
+- BGM: [AdhesiveWombat - 8 Bit Adventure (youtube)](https://www.youtube.com/watch?v=0HxZn6CzOIo)
