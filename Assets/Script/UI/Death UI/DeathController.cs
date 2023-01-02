@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeathController : MonoBehaviour
 {
     [SerializeField] GameObject target;
+    [SerializeField] AudioSource deathSound;
     private void Update()
     {
     }
@@ -14,7 +15,11 @@ public class DeathController : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        AudioListener.volume = 0; // mute player
+        AudioListener.pause = true; // mute player
+
+        // prevent getting muted by death menu
+        deathSound.ignoreListenerPause = true;
+        deathSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)

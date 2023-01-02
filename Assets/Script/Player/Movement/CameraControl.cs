@@ -11,7 +11,7 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         // can hear sound after scene first loaded
-        AudioListener.volume = 1;
+        AudioListener.pause=false;
     }
 
     // Update is called once per frame
