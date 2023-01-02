@@ -17,5 +17,15 @@ public class dontDestroyAudio : MonoBehaviour
             // prevent audio overlapping
             Destroy(gameObject);
         }
+       
+    }
+
+    private void Update()
+    {
+        if (Menu.ismenu == true)
+        {
+            Destroy(gameObject);
+            Menu.ismenu = false;
+        }
     }
 }
