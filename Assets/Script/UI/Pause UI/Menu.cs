@@ -13,5 +13,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);       
         AudioListener.pause = false;   
         PauseController.isPausing = false;
+
+        ChooseDifficulty.isEasyMode = false;
     }
 }

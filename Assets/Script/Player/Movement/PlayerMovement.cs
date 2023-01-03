@@ -56,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.velocity = newHorizontalSpeed + newVerticalSpeed + new Vector3(0,rb.velocity.y,0);
 
-                if (isGround && Input.GetKey(KeyCode.Space))
+                // can jump on air when in easy mode
+                if ((isGround || ChooseDifficulty.isEasyMode)&& Input.GetKey(KeyCode.Space))
                 {
                     rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
                 }
