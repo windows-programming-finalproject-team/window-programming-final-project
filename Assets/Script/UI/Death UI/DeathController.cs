@@ -7,9 +7,12 @@ public class DeathController : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] AudioSource deathSound; 
     public static bool isDeath;
+    Rigidbody rb;
+
     private void Start()
     {
         isDeath = false;
+        rb=GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -23,6 +26,8 @@ public class DeathController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         AudioListener.pause = true; // mute player
+
+        rb.velocity = Vector3.zero; // reset velocity of player, to prevent bug of dying with velocity
 
         // prevent getting muted by death menu
         deathSound.ignoreListenerPause = true;
