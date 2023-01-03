@@ -19,6 +19,7 @@ public class PullEnemy : MonoBehaviour
     Animator animator;
     [SerializeField] AudioSource ropeSound;
     [SerializeField] AudioSource attackSound;
+    SwitchWeapon switchScript;
 
     private void Awake()
     {
@@ -26,10 +27,16 @@ public class PullEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         // make lr invisible
         lr.enabled = false;
+        switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();
     }
 
     private void Update()
     {
+        if (!switchScript.enablingKatana)
+        {
+            return;
+        }
+
         DrawRope();
 
         if (Input.GetKeyDown(KeyCode.Q))
