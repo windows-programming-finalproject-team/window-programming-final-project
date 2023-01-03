@@ -21,7 +21,8 @@ public class UziShot : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         switchScript = transform.parent.parent.parent.GetComponent<SwitchWeapon>();     
-        muzzleFlash.Stop();        
+        muzzleFlash.Stop();
+        BulletNumber = maxBulletNumber;
     }
 
     // need to use this function for switching weapon
