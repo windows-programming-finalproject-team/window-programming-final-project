@@ -24,6 +24,12 @@ public class backForce : MonoBehaviour
         if (!shotgun.activeSelf)
             return;
 
+        // holding shotgun, but shotgun is still cooling
+        if (shotgun.GetComponent<ShotGunShot>().cooling)
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
