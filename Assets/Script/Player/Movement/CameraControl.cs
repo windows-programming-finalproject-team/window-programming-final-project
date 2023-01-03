@@ -13,7 +13,6 @@ public class CameraControl : MonoBehaviour
         // can hear sound after scene first loaded
         AudioListener.pause=false;
         mouseSensitivity=UpdateSensitivity.sensitivity;// get value in settings
-        Debug.Log(mouseSensitivity);
     }
 
     // Update is called once per frame
