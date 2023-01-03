@@ -6190,6 +6190,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 512
+  shotgunTile:
+    serializedVersion: 2
+    m_Bits: 128
   isOnGround: 1
 --- !u!1 &4125720106924439995
 GameObject:

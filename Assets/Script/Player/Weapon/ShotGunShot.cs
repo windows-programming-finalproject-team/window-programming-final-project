@@ -11,7 +11,7 @@ public class ShotGunShot : MonoBehaviour
     [SerializeField] public static int MaxBulletNumber = 3;
     public static int CurrentBulletNumber = 0;
     [SerializeField] ParticleSystem muzzleFlash;
-    bool cooling = false;
+    public bool cooling = false;
     float coolingTime = 0.8f;
     SwitchWeapon switchScript;
     [SerializeField] AudioSource reloadSound;
