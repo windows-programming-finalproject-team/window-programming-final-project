@@ -37812,41 +37812,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 721579577572620137, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3165653486247000587, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4825490789786641427, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5328274138071078518, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5588885813999353054, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8319842912584355743, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8817446262767007532, guid: 30959f93e2d40804e93f74b3cd711ed2,
-        type: 3}
-      propertyPath: defaultVolume
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30959f93e2d40804e93f74b3cd711ed2, type: 3}
 --- !u!4 &543450651856512272 stripped

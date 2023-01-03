@@ -25,7 +25,7 @@ public class backForce : MonoBehaviour
             return;
 
         // holding shotgun, but shotgun is still cooling
-        if (shotgun.GetComponent<ShotGunShot>().cooling)
+        if (shotgun.GetComponent<ShotGunShot>().cooling||PauseController.isPausing||DeathController.isDeath)
         {
             return;
         }

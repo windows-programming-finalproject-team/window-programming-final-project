@@ -39,9 +39,16 @@ public class ShotGunShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // pause
+        if (PauseController.isPausing || DeathController.isDeath)
+        {
+            return;
+        }
+
         info = animator.GetCurrentAnimatorStateInfo(0);
         if (Input.GetMouseButtonDown(0) && CurrentBulletNumber > 0&& ! cooling)
         {
+            Debug.Log("shot");
             animator.SetBool("isShotting", true);
             Shot();
             muzzleFlash.Play();

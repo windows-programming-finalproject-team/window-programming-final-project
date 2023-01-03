@@ -34,6 +34,11 @@ public class UziShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // pause
+        if (PauseController.isPausing || DeathController.isDeath)
+        {
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0) && BulletNumber > 0)
         {
