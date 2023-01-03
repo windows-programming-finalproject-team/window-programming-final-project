@@ -14,16 +14,23 @@ public class GrapplingGun : MonoBehaviour
     float minRopeScale=0.3f;
     float maxRopeScale = 0.6f;
     [SerializeField] AudioSource swingAudioSource;
+    SwitchWeapon switchScript;
 
     private void Awake()
     {
         lr = GetComponent<LineRenderer>();
         // make lr invisible
         lr.enabled = false;
+        switchScript=transform.parent.parent.parent.GetComponent<SwitchWeapon>();
     }
 
     private void Update()
     {
+        if (!switchScript.enablingKatana)
+        {
+            return;
+        }
+
         lr.positionCount = 2;
         DrawRope();
         if (Input.GetKeyDown(KeyCode.Q))
