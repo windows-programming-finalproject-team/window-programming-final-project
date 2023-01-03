@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 157065485}
   - component: {fileID: 157065484}
+  - component: {fileID: 8817446262767007532}
   m_Layer: 0
   m_Name: rope
   m_TagString: Untagged
@@ -128,6 +129,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8817446262767007532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157065483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &159019889
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b5f006d63e3e14b9fa5bcddb43e636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 150
   playerBody: {fileID: 200074051560368528}
 --- !u!1 &1257887438550747335
 GameObject:
@@ -5479,6 +5491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552790767913028140}
   - component: {fileID: 3535137020324053405}
+  - component: {fileID: 5588885813999353054}
   m_Layer: 0
   m_Name: shotgunShot
   m_TagString: Untagged
@@ -5597,6 +5610,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5588885813999353054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430180948104389205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1583888990961029901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5607,6 +5632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866635696837526109}
   - component: {fileID: 8385572685862327888}
+  - component: {fileID: 5328274138071078518}
   m_Layer: 0
   m_Name: slide
   m_TagString: Untagged
@@ -5725,6 +5751,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5328274138071078518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583888990961029901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2394548654785495262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5833,6 +5871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7163874181807244716}
   - component: {fileID: 4284122338916689173}
+  - component: {fileID: 4825490789786641427}
   m_Layer: 0
   m_Name: uziShooting
   m_TagString: Untagged
@@ -5951,6 +5990,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4825490789786641427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3061314780886851549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3873256083587260432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,6 +6012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7527804151289237666}
   - component: {fileID: 7615734064538697358}
+  - component: {fileID: 3165653486247000587}
   m_Layer: 0
   m_Name: death
   m_TagString: Untagged
@@ -6079,6 +6131,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3165653486247000587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3873256083587260432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4026421104731267644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6250,6 +6314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3872121669420561651}
   - component: {fileID: 520514465009334552}
+  - component: {fileID: 721579577572620137}
   m_Layer: 0
   m_Name: reload
   m_TagString: Untagged
@@ -6368,6 +6433,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &721579577572620137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186066899627947038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7438393804853278317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,6 +6553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437118116070830903}
   - component: {fileID: 8345412013925576943}
+  - component: {fileID: 8319842912584355743}
   m_Layer: 0
   m_Name: swordSwing
   m_TagString: Untagged
@@ -6594,6 +6672,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8319842912584355743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682064705443632347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1465331648
 PrefabInstance:
   m_ObjectHideFlags: 0
