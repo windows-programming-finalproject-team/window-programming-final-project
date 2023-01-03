@@ -29,7 +29,7 @@ public class ShotGunShot : MonoBehaviour
         muzzleFlash.Stop();
     }
 
-    // need to use this function for switching weapon
+        // need to use this function for switching weapon
     private void OnEnable()
     {
         muzzleFlash.Stop();

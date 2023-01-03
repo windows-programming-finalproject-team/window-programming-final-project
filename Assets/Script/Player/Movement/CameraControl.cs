@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField] float mouseSensitivity = 100f;
+    float mouseSensitivity;
     [SerializeField] Transform playerBody;
     float xRotation=0;
     // Start is called before the first frame update
@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour
     {
         // can hear sound after scene first loaded
         AudioListener.pause=false;
+        mouseSensitivity=UpdateSensitivity.sensitivity;// get value in settings
+        Debug.Log(mouseSensitivity);
     }
 
     // Update is called once per frame
