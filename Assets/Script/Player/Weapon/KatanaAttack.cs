@@ -25,6 +25,12 @@ public class KatanaAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // pause
+        if (PauseController.isPausing || DeathController.isDeath)
+        {
+            return;
+        }
+
         info = animator.GetCurrentAnimatorStateInfo(0);
         isGrappling = transform.GetComponent<GrapplingGun>().IsGrappling();
         if(info.normalizedTime >= 0.99f)

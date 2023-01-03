@@ -15121,6 +15121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba99494cdced9e54e81bf7df21468411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 0.6
 --- !u!4 &810224583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 107574454511814469, guid: a69158361b1d0af49831288210a46774,

@@ -8,6 +8,7 @@ public class Revive : MonoBehaviour
     public void revive()
     {
         PauseController.isPausing = false;
+        DeathController.isDeath = false;
         // reload current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);     
     }

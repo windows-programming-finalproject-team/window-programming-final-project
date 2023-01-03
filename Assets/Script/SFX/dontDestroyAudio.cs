@@ -5,11 +5,12 @@ using UnityEngine;
 public class dontDestroyAudio : MonoBehaviour
 {
     public static dontDestroyAudio instance;
-    AudioSource audiosoure;
+    AudioSource audioSource;
+    [SerializeField] float defaultVolume;
     private void Awake()
     {
-        audiosoure = GetComponent<AudioSource>();
-        audiosoure.volume = UpdateVolume.volume;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.volume = UpdateVolume.volume*defaultVolume;
         if (instance == null)
         {
             DontDestroyOnLoad(this.gameObject);

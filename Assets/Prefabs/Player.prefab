@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &159019889
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,6 +5623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 0.6
 --- !u!1 &1583888990961029901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +5765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &2394548654785495262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6002,6 +6005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 0.6
 --- !u!1 &3873256083587260432
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,6 +6147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &4026421104731267644
 GameObject:
   m_ObjectHideFlags: 0
@@ -6448,6 +6453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &7438393804853278317
 GameObject:
   m_ObjectHideFlags: 0
@@ -6687,6 +6693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1001 &1465331648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7581,6 +7588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170183658936521671, guid: ada498467829c7a40bfd3e27aa0a5ad3,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 200074051560368542}
+    - target: {fileID: 6170183658936521671, guid: ada498467829c7a40bfd3e27aa0a5ad3,
+        type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 3536118110374403925}
@@ -7859,6 +7871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1518470386602172104, guid: 6e9745ce59add8349b68ef5af7ce7944, type: 3}
   muzzleFlash: {fileID: 198234348077232794}
+  cooling: 0
   reloadSound: {fileID: 520514465009334552}
   shootSound: {fileID: 3535137020324053405}
 --- !u!4 &6785754389732019262 stripped
