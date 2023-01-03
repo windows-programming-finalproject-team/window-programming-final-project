@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ChooseDifficulty : MonoBehaviour
@@ -7,6 +8,7 @@ public class ChooseDifficulty : MonoBehaviour
     // effects around text
     [SerializeField] GameObject easyLine;
     [SerializeField] GameObject hardcoreLine;
+    [SerializeField] GameObject easyModeDescription;
 
     public static bool isEasyMode = false;
 
@@ -20,6 +22,7 @@ public class ChooseDifficulty : MonoBehaviour
         isEasyMode = true;
         easyLine.SetActive(true);
         hardcoreLine.SetActive(false);
+        easyModeDescription.SetActive(true);
     }
 
     public void chooseHardcoreMode()
@@ -27,5 +30,6 @@ public class ChooseDifficulty : MonoBehaviour
         isEasyMode = false;
         easyLine.SetActive(false);
         hardcoreLine.SetActive(true);
+        easyModeDescription.SetActive(false);
     }
 }
