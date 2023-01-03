@@ -17,7 +17,6 @@ public class playerDamage : MonoBehaviour
         hp.text = "HP : " + Life;
         if(Life <= 0)
         {
-            //todo
             GetComponent<DeathController>().DeathEvent();
         }
     }

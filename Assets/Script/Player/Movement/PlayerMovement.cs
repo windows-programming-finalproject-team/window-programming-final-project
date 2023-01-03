@@ -108,17 +108,16 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = 2*movingSpeed*transform.forward;
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "lava")
-        {
-            transform.GetComponent<playerDamage>().GetHit(10);
-        }
-        //if (collision.gameObject.tag == "ground") isGround = true;
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "lava")
+    //    {
+    //        transform.GetComponent<playerDamage>().GetHit(10);
+    //    }
+    //    //if (collision.gameObject.tag == "ground") isGround = true;
+    //}
     private void OnCollisionStay(Collision collision)
     {
-        //if (collision.gameObject.tag == "ground") isGround = true;
         if (collision.gameObject.tag == "wallrunTile")
         {
             onWall = true;
@@ -130,7 +129,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         onWall = false;
-        //if (collision.gameObject.tag == "ground") isGround = false;
         if (collision.gameObject.tag == "wallrunTile")
         {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
