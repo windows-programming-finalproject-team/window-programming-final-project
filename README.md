@@ -8,4 +8,5 @@ This project is done by 王柏凱、張辰凱、張原愷
 1.Unity Editor version : 2021.3.13f1
 
 # Credits
+- Menu BGM: [Neo Nomen - KARLSON Trailer OST (youtube)](https://www.youtube.com/watch?v=SzKZl7SkNN0)
 - BGM: [AdhesiveWombat - 8 Bit Adventure (youtube)](https://www.youtube.com/watch?v=0HxZn6CzOIo)

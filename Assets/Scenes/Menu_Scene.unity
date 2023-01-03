@@ -3914,9 +3914,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5477981959270302554}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: NormalDifficulty
+      - m_Target: {fileID: 5660693327440952833}
+        m_TargetAssemblyTypeName: ChooseDifficulty, Assembly-CSharp
+        m_MethodName: chooseEasyMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7358,7 +7358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: normal
+  m_text: easy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b65c99348f068b49bef5db0bb76a6e4, type: 2}
   m_sharedMaterial: {fileID: 21809785584020342, guid: 0b65c99348f068b49bef5db0bb76a6e4,
@@ -14885,9 +14885,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5477981959270302554}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: HardcoreDifficulty
+      - m_Target: {fileID: 5660572842485218459}
+        m_TargetAssemblyTypeName: ChooseDifficulty, Assembly-CSharp
+        m_MethodName: chooseHardcoreMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17812,9 +17812,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ae5b4f05aaedda4bb073e24ee777fb3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 11a506ee5fc202241a0e6be6cfd0b6b4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18490,8 +18490,9 @@ GameObject:
   - component: {fileID: 5658587323127212936}
   - component: {fileID: 5479296564493693148}
   - component: {fileID: 5478593688472361144}
+  - component: {fileID: 5660572842485218459}
   m_Layer: 5
-  m_Name: HardDif_Btn
+  m_Name: hardcoreDifficultyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19891,7 +19892,7 @@ GameObject:
   - component: {fileID: 5658628613132268920}
   - component: {fileID: 5477855336349021560}
   m_Layer: 5
-  m_Name: NORMALINE
+  m_Name: EASYLINE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20660,7 +20661,7 @@ GameObject:
   - component: {fileID: 5658510307566801980}
   - component: {fileID: 5477812272568703816}
   m_Layer: 0
-  m_Name: normaldifficultytext
+  m_Name: easyDifficultyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21708,8 +21709,9 @@ GameObject:
   - component: {fileID: 5657682792547601828}
   - component: {fileID: 5477856978517326266}
   - component: {fileID: 5477568857722450198}
+  - component: {fileID: 5660693327440952833}
   m_Layer: 5
-  m_Name: NormDif_Btn
+  m_Name: easyDifficultyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23845,7 +23847,7 @@ GameObject:
   - component: {fileID: 5658040141174707576}
   - component: {fileID: 5477629186596586206}
   m_Layer: 0
-  m_Name: hardcoredifficultytext
+  m_Name: hardcoreDifficultyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31952,6 +31954,20 @@ RectTransform:
   m_AnchoredPosition: {x: 501.3, y: 184.00143}
   m_SizeDelta: {x: 215.5, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5660572842485218459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589391578203101902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3103e01843a334b86dd9df37cc580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyLine: {fileID: 5590232006522671926}
+  hardcoreLine: {fileID: 5590247835693536936}
 --- !u!224 &5660576243317379088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32507,6 +32523,20 @@ RectTransform:
   m_AnchoredPosition: {x: 266.00006, y: 184}
   m_SizeDelta: {x: 175, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5660693327440952833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590807076615996904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3103e01843a334b86dd9df37cc580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easyLine: {fileID: 5590232006522671926}
+  hardcoreLine: {fileID: 5590247835693536936}
 --- !u!224 &5660699101438404988
 RectTransform:
   m_ObjectHideFlags: 0

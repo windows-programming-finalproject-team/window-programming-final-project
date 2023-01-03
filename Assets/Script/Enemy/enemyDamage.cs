@@ -20,7 +20,8 @@ public class enemyDamage : MonoBehaviour
     public void GetHit(float damage)
     {
         Life -= damage;
-        if (Life <= 0)
+        // player instant kills enemy in easy mode
+        if (Life <= 0|| ChooseDifficulty.isEasyMode)
         {
             animator.SetBool("dead", true);
             if (!hasExploded)

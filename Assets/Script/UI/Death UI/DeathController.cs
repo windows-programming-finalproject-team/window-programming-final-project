@@ -32,7 +32,9 @@ public class DeathController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // player dies after touching red or lava
-        if (collision.gameObject.CompareTag("death")||collision.gameObject.CompareTag("lava"))
+        if ((collision.gameObject.CompareTag("death")||collision.gameObject.CompareTag("lava"))
+            && (!ChooseDifficulty.isEasyMode))
+        // can't die in easy mode
         {
             DeathEvent();
         }

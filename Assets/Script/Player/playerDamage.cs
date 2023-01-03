@@ -10,14 +10,27 @@ public class playerDamage : MonoBehaviour
     private void Start()
     {
         hp = GetComponent<SwitchWeaponCanvas>().HP;
+
+        // has a lot of life in easy mode
+        if (ChooseDifficulty.isEasyMode)
+        {
+            Life = 99999;
+            hp.text = "HP : Infinite";
+        }
+
     }
     public void GetHit(float damage)
     {
+        // can't take damage in easy mode
+        if (ChooseDifficulty.isEasyMode)
+        {
+            return;
+        }
+
         Life -= damage;
         hp.text = "HP : " + Life;
         if(Life <= 0)
         {
-            //todo
             GetComponent<DeathController>().DeathEvent();
         }
     }
