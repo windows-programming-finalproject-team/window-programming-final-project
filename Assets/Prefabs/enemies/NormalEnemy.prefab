@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &710389337
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce2f6dcf1504ca44a22c1a67dd892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVolume: 1
 --- !u!1 &1637026527
 GameObject:
   m_ObjectHideFlags: 0
