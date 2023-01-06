@@ -12,8 +12,9 @@ This project is done by 王柏凱、張辰凱、張原愷
 1. Download the project, and put it in another folder.
 2. Open with Unity Hub, and go to unity editor
 3. Open the file tab on top left
-4. Choose build and run(The settings are already completed)
-5. Play the game
+4. Choose build and build folder(The settings are already completed)
+5. Go to the folder, click exe file inside
+6. Play the game
 
 # How to play
 1. After you open the game, you will see main menu
@@ -25,6 +26,7 @@ This project is done by 王柏凱、張辰凱、張原愷
 - Use WASD to move
 - Use space to jump
 - Use Shift to slide
+- Press R to reload
 - Touch speed tile to do wall run
 - Avoid lava/red object to survive
 - Aim at glowing blue tile with katana, and press Q to swing
