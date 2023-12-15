@@ -35,7 +35,7 @@ This project is done by 王柏凱、張辰凱、張原愷
 - Go past portals to go to next level
 
 # Demo video
-[Youtube](https://www.youtube.com/watch?v=wFtV8abS_rU)
+[Youtube](https://youtu.be/5XM_u3Js9xk?si=QoTpdhNzUK652AfA)
 
 # Credits
 - Menu BGM: [Neo Nomen - KARLSON Trailer OST (youtube)](https://www.youtube.com/watch?v=SzKZl7SkNN0)
